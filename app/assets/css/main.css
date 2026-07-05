@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --c-surface: 245 245 243;
+    --c-surface-alt: 232 232 228;
+    --c-ink: 10 10 10;
+    --c-ink-soft: 82 82 78;
+    --c-ink-faint: 150 150 145;
+    --c-line: 10 10 10;
+    --c-accent: 217 78 43;
+  }
+
+  .dark {
+    --c-surface: 8 8 8;
+    --c-surface-alt: 20 20 20;
+    --c-ink: 240 240 237;
+    --c-ink-soft: 160 160 155;
+    --c-ink-faint: 95 95 92;
+    --c-line: 240 240 237;
+    --c-accent: 255 106 61;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply bg-surface text-ink font-sans antialiased overflow-x-hidden;
+    transition: background-color 0.6s var(--tw-ease, cubic-bezier(0.16, 1, 0.3, 1)), color 0.6s;
+  }
+
+  ::selection {
+    @apply bg-accent text-white;
+  }
+
+  /* Native cursor is replaced by AppCursor on pointer-fine devices */
+  @media (hover: hover) and (pointer: fine) {
+    html.has-custom-cursor,
+    html.has-custom-cursor * {
+      cursor: none !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .link-underline {
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute left-0 -bottom-0.5 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-500 ease-expo;
+  }
+
+  .link-underline:hover::after {
+    @apply origin-left scale-x-100;
+  }
+
+  .hairline {
+    @apply border-line/20;
+  }
+
+  .grain::before {
+    content: '';
+    position: fixed;
+    inset: -100%;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .clip-hidden {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+}
+
+/* GSAP SplitText helpers */
+.split-line {
+  overflow: hidden;
+  display: block;
+}
