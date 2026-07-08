@@ -1,0 +1,256 @@
+{
+  "nav": {
+    "home": "Главная",
+    "work": "Работы",
+    "about": "Обо мне",
+    "contact": "Контакты",
+    "menu": "Меню",
+    "toggleMenu": "Открыть меню"
+  },
+  "common": {
+    "menu": "Меню",
+    "social": "Соцсети",
+    "view": "Смотреть",
+    "open": "Открыть",
+    "next": "Дальше",
+    "send": "Отправить",
+    "mail": "Почта",
+    "allWork": "Все работы",
+    "website": "Сайт",
+    "mobileApp": "Мобильное приложение",
+    "builtWith": "Сделано на Nuxt + GSAP",
+    "rights": "© {year} Даурен Абасов",
+    "location": "Алматы, KZ — {time}",
+    "downloadCv": "Скачать CV",
+    "cv": "Резюме"
+  },
+  "theme": {
+    "dark": "тёмная",
+    "light": "светлая",
+    "switch": "Переключить на {mode} тему"
+  },
+  "preloader": {
+    "greetings": [
+      "Салам",
+      "Привет",
+      "Hello",
+      "Сәлем",
+      "Bonjour",
+      "こんにちは"
+    ]
+  },
+  "home": {
+    "seoTitle": "Даурен Абасов — Frontend-разработчик",
+    "seoDescription": "Портфолио frontend-разработчика из Алматы: Nuxt 3, Vue 3, TypeScript, GSAP. Киберспорт, маркетплейсы, финтех, госсервисы и мобильные приложения.",
+    "heroIntro": "Frontend-разработчик из Алматы. Vue, Nuxt 3, TypeScript — интерфейсы, которые быстро грузятся и приятно двигаются.",
+    "heroStatus": "Открыт для работы — 2026",
+    "heroRolePrefix": "Я",
+    "roles": [
+      "Frontend-разработчик",
+      "Mobile-разработчик",
+      "Backend-разработчик"
+    ],
+    "selectedWork": "Избранные работы",
+    "sayHello": "Написать",
+    "approach": "Подход",
+    "approachText": "Помогаю брендам выделяться в digital: собираю интерфейсы, где продуманный дизайн, аккуратная анимация и честная производительность работают на одну цель — превратить идею в живой продукт.",
+    "servicesTitle": "Чем могу помочь",
+    "worksTitle": "Избранные работы — 2022 / 2026",
+    "moreProjects": "Ещё\nпроекты",
+    "stackTitle": "Стек и цифры",
+    "ctaTitle": "Давайте поработаем",
+    "ctaText": "Открыт для фриланса, продуктовых команд и интересных экспериментов с анимацией.",
+    "footerCta": "Есть идея? Давайте соберём её вместе.",
+    "startProject": "Начать проект"
+  },
+  "services": {
+    "design": {
+      "title": "Дизайн",
+      "body": "Прототипы и дизайн-системы в Figma: сетки, типографика, состояния компонентов. Дизайн, который можно собрать без сюрпризов на вёрстке.",
+      "points": [
+        "UI / UX",
+        "Дизайн-система",
+        "Прототипы"
+      ]
+    },
+    "build": {
+      "title": "Разработка",
+      "body": "Vue, Nuxt, React и TypeScript. SSR, интеграции с REST, состояние на Pinia, анимации на GSAP — от лендинга до маркетплейса и мобильного приложения.",
+      "points": [
+        "Nuxt / SSR",
+        "TypeScript",
+        "Мобильные приложения"
+      ]
+    },
+    "grow": {
+      "title": "Развитие",
+      "body": "Core Web Vitals, SEO-разметка, доступность и аналитика. Слежу, чтобы после релиза продукт становился быстрее, а не тяжелее.",
+      "points": [
+        "Производительность",
+        "SEO",
+        "Доступность"
+      ]
+    }
+  },
+  "stats": {
+    "years": "года в коммерческой разработке",
+    "ttfb": "% — сокращение TTFB после перехода на SSR",
+    "payload": "% — уменьшение payload после фикса утечки памяти",
+    "pages": "+ страниц и виджетов в редизайне BIGPLAY.GG"
+  },
+  "work": {
+    "seoTitle": "Работы — Даурен Абасов",
+    "seoDescription": "Проекты: BIGPLAY, MEGA, Tanda, Integro, Norma, M Bulak, Tumar, HFT.",
+    "eyebrow": "Избранные проекты",
+    "title": "Работы",
+    "subtitle": "Восемь продуктов из Казахстана и Кыргызстана: киберспортивная платформа, маркетплейс, ТРЦ, госплатформа, производство, микрофинанс и два мобильных приложения.",
+    "metaProjects": "Проектов",
+    "metaYears": "Годы",
+    "metaRole": "Роль",
+    "roleValue": "Frontend",
+    "filterAll": "Все",
+    "filterWeb": "Сайты",
+    "filterMobile": "Приложения",
+    "viewGrid": "grid",
+    "viewList": "list",
+    "caseStudy": "Кейс",
+    "client": "Клиент",
+    "year": "Год",
+    "role": "Роль",
+    "type": "Тип",
+    "status": "Статус",
+    "statusProduction": "в проде",
+    "statusDev": "в разработке",
+    "contribution": "Что я сделал",
+    "stack": "Стек",
+    "openSite": "Открыть сайт",
+    "openLanding": "Открыть лендинг",
+    "nextProject": "Следующий проект",
+    "appScreen": "экран приложения"
+  },
+  "about": {
+    "seoTitle": "Обо мне — Даурен Абасов",
+    "seoDescription": "Frontend-разработчик из Алматы: Vue 3, Nuxt 3, TypeScript, GSAP. Опыт, образование и стек.",
+    "eyebrow": "Кто за этим стоит",
+    "title": "Обо мне",
+    "subtitle": "Frontend-разработчик, Алматы — Vue 3, Nuxt 3, TypeScript. Сейчас в Bigplay.gg.",
+    "metaBased": "Город",
+    "metaBasedValue": "Алматы, KZ",
+    "metaExperience": "Опыт",
+    "metaExperienceValue": "с 2022 года",
+    "metaLanguages": "Языки",
+    "metaLanguagesValue": "RU родной / EN B1",
+    "hireMe": "Нанять меня",
+    "bio": [
+      "Меня зовут Даурен, я frontend-разработчик из Алматы. Пишу на Vue 3 и Nuxt 3 с TypeScript, работал и с легаси на Vue 2 / Vuex — беру задачи от вёрстки макета до архитектуры стора и интеграции с API.",
+      "Сейчас развиваю киберспортивную платформу BIGPLAY.GG: перевёл запросы на SSR и срезал TTFB на 35%, нашёл утечку памяти через fuite.js и уменьшил payload с 3000 КБ до 200 КБ, собрал собственный UI-kit и переделал 40+ страниц и 20 виджетов.",
+      "До этого два года в Elefanto: EdTech-маркетплейс Studyhub, автоматизация экстренных вызовов ucc-109 и портал сети ТРЦ mega.kz. Там же внедрил Feature-Sliced Design, покрыл сторы и композаблы тестами на Jest/Vitest и вырос до мидла с ревью и менторством.",
+      "Люблю, когда интерфейс не просто работает, а ощущается: аккуратные переходы, честный скролл, отсутствие лишних спиннеров — и чтобы всё это укладывалось в бюджет производительности."
+    ],
+    "experience": "Опыт",
+    "education": "Образование",
+    "impact": "Результаты",
+    "principles": "Принципы",
+    "jobs": [
+      {
+        "year": "2024 — н.в.",
+        "title": "Bigplay.gg",
+        "role": "Frontend Developer",
+        "place": "Алматы · Nuxt 3, Vue 2 admin, SSR, Core Web Vitals, JSON-LD, security headers"
+      },
+      {
+        "year": "2022 — 2024",
+        "title": "Elefanto",
+        "role": "Frontend Developer → Middle",
+        "place": "Studyhub, ucc-109, mega.kz · FSD, Pinia/Vuex, antd, vue-query, Jest/Vitest"
+      }
+    ],
+    "schools": [
+      {
+        "period": "— 2028",
+        "school": "Кыргызский национальный университет им. Ж. Баласагына",
+        "degree": "B.S. Software Engineering",
+        "note": "Дистанционная форма обучения. Ожидаемое окончание — 2028 год.",
+        "place": "Бишкек, Кыргызстан"
+      }
+    ],
+    "highlights": [
+      {
+        "value": "−35%",
+        "label": "TTFB после переноса запросов на SSR в Nuxt 3"
+      },
+      {
+        "value": "−93%",
+        "label": "payload: 3000 КБ → 200 КБ после фикса утечки памяти"
+      },
+      {
+        "value": "40+",
+        "label": "страниц и 20 виджетов в редизайне платформы"
+      },
+      {
+        "value": "1000+",
+        "label": "строк вынесено в npm-пакет {'@'}bigplay/vue-tree-view"
+      }
+    ],
+    "principlesList": [
+      "Сначала контент и структура, потом эффекты",
+      "Анимация подчёркивает смысл, а не отвлекает",
+      "Мобильные — не «потом», а с самого начала",
+      "Производительность — это фича, а не оптимизация «когда-нибудь»"
+    ]
+  },
+  "contact": {
+    "seoTitle": "Контакты — Даурен Абасов",
+    "seoDescription": "Связаться с frontend-разработчиком: почта, Telegram, форма обратной связи.",
+    "eyebrow": "Давайте поговорим",
+    "title": "Контакты",
+    "subtitle": "Расскажите про задачу — отвечу в течение дня. Можно на русском или английском.",
+    "metaStatus": "Статус",
+    "metaStatusValue": "Открыт для проектов",
+    "metaTimezone": "Часовой пояс",
+    "metaTimezoneValue": "GMT+5, Алматы",
+    "metaResponse": "Ответ",
+    "metaResponseValue": "< 24 часов",
+    "name": "Имя",
+    "namePlaceholder": "Как к вам обращаться",
+    "email": "Email",
+    "budget": "Бюджет",
+    "budgets": [
+      "< $1k",
+      "$1k — $3k",
+      "$3k — $7k",
+      "$7k+",
+      "Обсудим"
+    ],
+    "message": "Сообщение",
+    "messagePlaceholder": "Пара слов о проекте, сроках и целях",
+    "sending": "Отправляю…",
+    "sent": "Отправлено ✓",
+    "submit": "Отправить",
+    "thanks": "Спасибо! Скоро вернусь с ответом.",
+    "writeByMail": "Написать письмом",
+    "errorGeneric": "Что-то пошло не так. Попробуйте ещё раз или напишите в Telegram.",
+    "errorNotConfigured": "Отправка пока не настроена на сервере — напишите напрямую на почту или в Telegram.",
+    "channels": "Прямые каналы",
+    "labelEmail": "Email",
+    "labelPhone": "Телефон",
+    "labelTelegram": "Telegram",
+    "labelGithub": "GitHub",
+    "labelLinkedin": "LinkedIn",
+    "resume": "Резюме",
+    "downloadCvPdf": "Скачать CV (PDF)",
+    "nowIn": "Сейчас в Алматы",
+    "mailSubject": "Проект от {name}",
+    "mailFrom": "сайта-портфолио",
+    "errors": {
+      "name": "Введите имя",
+      "email": "Введите корректный email",
+      "message": "Расскажите чуть подробнее"
+    }
+  },
+  "error": {
+    "notFound": "Страница потерялась",
+    "generic": "Что-то сломалось",
+    "home": "На главную"
+  }
+}
