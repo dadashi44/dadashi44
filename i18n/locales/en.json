@@ -1,0 +1,256 @@
+{
+  "nav": {
+    "home": "Home",
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact",
+    "menu": "Menu",
+    "toggleMenu": "Toggle menu"
+  },
+  "common": {
+    "menu": "Menu",
+    "social": "Social",
+    "view": "View",
+    "open": "Open",
+    "next": "Next",
+    "send": "Send",
+    "mail": "Mail",
+    "allWork": "All work",
+    "website": "Website",
+    "mobileApp": "Mobile app",
+    "builtWith": "Built with Nuxt + GSAP",
+    "rights": "© {year} Dauren Abasov",
+    "location": "Almaty, KZ — {time}",
+    "downloadCv": "Download CV",
+    "cv": "CV"
+  },
+  "theme": {
+    "dark": "dark",
+    "light": "light",
+    "switch": "Switch to {mode} theme"
+  },
+  "preloader": {
+    "greetings": [
+      "Hello",
+      "Салам",
+      "Привет",
+      "Сәлем",
+      "Bonjour",
+      "こんにちは"
+    ]
+  },
+  "home": {
+    "seoTitle": "Dauren Abasov — Frontend Developer",
+    "seoDescription": "Portfolio of an Almaty-based frontend developer: Nuxt 3, Vue 3, TypeScript, GSAP. Esports, marketplaces, fintech, govtech and mobile apps.",
+    "heroIntro": "Frontend developer based in Almaty. Vue, Nuxt 3, TypeScript — interfaces that load fast and move well.",
+    "heroStatus": "Available for work — 2026",
+    "heroRolePrefix": "I'm a",
+    "roles": [
+      "Frontend Developer",
+      "Mobile Developer",
+      "Backend Developer"
+    ],
+    "selectedWork": "Selected work",
+    "sayHello": "Say hello",
+    "approach": "Approach",
+    "approachText": "I help brands stand out online: interfaces where considered design, restrained motion and honest performance all pull in one direction — turning an idea into a product people actually use.",
+    "servicesTitle": "What I can help with",
+    "worksTitle": "Selected work — 2022 / 2026",
+    "moreProjects": "More\nprojects",
+    "stackTitle": "Stack & numbers",
+    "ctaTitle": "Let's work together",
+    "ctaText": "Open to freelance, product teams and interesting experiments with motion.",
+    "footerCta": "Got an idea? Let's build it together.",
+    "startProject": "Start a project"
+  },
+  "services": {
+    "design": {
+      "title": "Design",
+      "body": "Prototypes and design systems in Figma: grids, typography, component states. Design that can be built without surprises in the markup.",
+      "points": [
+        "UI / UX",
+        "Design system",
+        "Prototyping"
+      ]
+    },
+    "build": {
+      "title": "Build",
+      "body": "Vue, Nuxt, React and TypeScript. SSR, REST integrations, state in Pinia, motion with GSAP — from a landing page to a marketplace or a mobile app.",
+      "points": [
+        "Nuxt / SSR",
+        "TypeScript",
+        "Mobile apps"
+      ]
+    },
+    "grow": {
+      "title": "Grow",
+      "body": "Core Web Vitals, structured data, accessibility and analytics. I make sure a product gets faster after launch, not heavier.",
+      "points": [
+        "Performance",
+        "SEO",
+        "Accessibility"
+      ]
+    }
+  },
+  "stats": {
+    "years": "years in commercial development",
+    "ttfb": "% lower TTFB after moving requests to SSR",
+    "payload": "% smaller payload after fixing a memory leak",
+    "pages": "+ pages and widgets in the BIGPLAY.GG redesign"
+  },
+  "work": {
+    "seoTitle": "Work — Dauren Abasov",
+    "seoDescription": "Projects: BIGPLAY, MEGA, Tanda, Integro, Norma, M Bulak, Tumar, HFT.",
+    "eyebrow": "Selected projects",
+    "title": "Work",
+    "subtitle": "Eight products from Kazakhstan and Kyrgyzstan: an esports platform, a marketplace, a mall network, a govtech vendor, a paint factory, a microfinance company and two mobile apps.",
+    "metaProjects": "Projects",
+    "metaYears": "Years",
+    "metaRole": "Role",
+    "roleValue": "Frontend",
+    "filterAll": "All",
+    "filterWeb": "Websites",
+    "filterMobile": "Mobile apps",
+    "viewGrid": "grid",
+    "viewList": "list",
+    "caseStudy": "Case study",
+    "client": "Client",
+    "year": "Year",
+    "role": "Role",
+    "type": "Type",
+    "status": "Status",
+    "statusProduction": "production",
+    "statusDev": "in development",
+    "contribution": "My contribution",
+    "stack": "Stack",
+    "openSite": "Open website",
+    "openLanding": "Open landing",
+    "nextProject": "Next project",
+    "appScreen": "app screen"
+  },
+  "about": {
+    "seoTitle": "About — Dauren Abasov",
+    "seoDescription": "Frontend developer based in Almaty: Vue 3, Nuxt 3, TypeScript, GSAP. Experience, education and stack.",
+    "eyebrow": "Who is behind this",
+    "title": "About",
+    "subtitle": "Frontend developer, Almaty — Vue 3, Nuxt 3, TypeScript. Currently at Bigplay.gg.",
+    "metaBased": "Based in",
+    "metaBasedValue": "Almaty, KZ",
+    "metaExperience": "Experience",
+    "metaExperienceValue": "since 2022",
+    "metaLanguages": "Languages",
+    "metaLanguagesValue": "RU native / EN B1",
+    "hireMe": "Hire me",
+    "bio": [
+      "I'm Dauren, a frontend developer based in Almaty. I write Vue 3 and Nuxt 3 with TypeScript and have kept legacy Vue 2 / Vuex alive too — I take work from turning a mockup into markup all the way to store architecture and API integration.",
+      "Right now I'm building the BIGPLAY.GG esports platform: moved requests to SSR and cut TTFB by 35%, tracked down a memory leak with fuite.js and shrank the payload from 3000 KB to 200 KB, built a UI kit from scratch and reworked 40+ pages and 20 widgets.",
+      "Before that, two years at Elefanto: the Studyhub EdTech marketplace, the ucc-109 emergency call automation and the mega.kz mall portal. I introduced Feature-Sliced Design there, covered stores and composables with Jest/Vitest, and grew into a middle role running reviews and mentoring.",
+      "I like interfaces that don't just work but feel right: careful transitions, honest scrolling, no needless spinners — and all of it inside a performance budget."
+    ],
+    "experience": "Experience",
+    "education": "Education",
+    "impact": "Impact",
+    "principles": "Principles",
+    "jobs": [
+      {
+        "year": "2024 — now",
+        "title": "Bigplay.gg",
+        "role": "Frontend Developer",
+        "place": "Almaty · Nuxt 3, Vue 2 admin, SSR, Core Web Vitals, JSON-LD, security headers"
+      },
+      {
+        "year": "2022 — 2024",
+        "title": "Elefanto",
+        "role": "Frontend Developer → Middle",
+        "place": "Studyhub, ucc-109, mega.kz · FSD, Pinia/Vuex, antd, vue-query, Jest/Vitest"
+      }
+    ],
+    "schools": [
+      {
+        "period": "— 2028",
+        "school": "Kyrgyz National University named after Jusup Balasagyn",
+        "degree": "B.S. Software Engineering",
+        "note": "Distance learning. Expected graduation — 2028.",
+        "place": "Bishkek, Kyrgyzstan"
+      }
+    ],
+    "highlights": [
+      {
+        "value": "−35%",
+        "label": "TTFB after moving requests to SSR in Nuxt 3"
+      },
+      {
+        "value": "−93%",
+        "label": "payload: 3000 KB → 200 KB after fixing a memory leak"
+      },
+      {
+        "value": "40+",
+        "label": "pages and 20 widgets in the platform redesign"
+      },
+      {
+        "value": "1000+",
+        "label": "lines extracted into the {'@'}bigplay/vue-tree-view package"
+      }
+    ],
+    "principlesList": [
+      "Content and structure first, effects second",
+      "Motion should carry meaning, not steal attention",
+      "Mobile is the starting point, not an afterthought",
+      "Performance is a feature, not a someday optimisation"
+    ]
+  },
+  "contact": {
+    "seoTitle": "Contact — Dauren Abasov",
+    "seoDescription": "Get in touch with a frontend developer: email, Telegram, contact form.",
+    "eyebrow": "Let's talk",
+    "title": "Contact",
+    "subtitle": "Tell me about the project — I usually reply the same day. English or Russian both work.",
+    "metaStatus": "Status",
+    "metaStatusValue": "Open to projects",
+    "metaTimezone": "Timezone",
+    "metaTimezoneValue": "GMT+5, Almaty",
+    "metaResponse": "Response",
+    "metaResponseValue": "< 24 hours",
+    "name": "Name",
+    "namePlaceholder": "What should I call you",
+    "email": "Email",
+    "budget": "Budget",
+    "budgets": [
+      "< $1k",
+      "$1k — $3k",
+      "$3k — $7k",
+      "$7k+",
+      "Let's discuss"
+    ],
+    "message": "Message",
+    "messagePlaceholder": "A few words about the project, timeline and goals",
+    "sending": "Sending…",
+    "sent": "Sent ✓",
+    "submit": "Send",
+    "thanks": "Thanks! I'll get back to you shortly.",
+    "writeByMail": "Send an email instead",
+    "errorGeneric": "Something went wrong. Try again or ping me on Telegram.",
+    "errorNotConfigured": "Delivery isn't configured on the server yet — email me or write on Telegram.",
+    "channels": "Direct channels",
+    "labelEmail": "Email",
+    "labelPhone": "Phone",
+    "labelTelegram": "Telegram",
+    "labelGithub": "GitHub",
+    "labelLinkedin": "LinkedIn",
+    "resume": "Resume",
+    "downloadCvPdf": "Download CV (PDF)",
+    "nowIn": "Local time in Almaty",
+    "mailSubject": "Project enquiry from {name}",
+    "mailFrom": "the portfolio site",
+    "errors": {
+      "name": "Please enter your name",
+      "email": "Please enter a valid email",
+      "message": "Tell me a bit more"
+    }
+  },
+  "error": {
+    "notFound": "This page got lost",
+    "generic": "Something broke",
+    "home": "Back home"
+  }
+}
