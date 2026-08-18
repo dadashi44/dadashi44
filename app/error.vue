@@ -20,9 +20,9 @@ const goHome = () => clearError({redirect: '/'})
 
     <!-- the car floats through the gap between these two blocks -->
     <div class="relative z-10 flex min-h-svh w-full flex-col items-center justify-between py-14 lg:py-20">
-      <div class="flex flex-col items-center gap-3">
+      <div class="flex w-full flex-col items-center gap-3">
         <p class="font-display text-sm uppercase tracking-[0.4em] text-white/40">error {{ error.statusCode }}</p>
-        <p class="font-display text-headline uppercase leading-none">
+        <p class="max-w-full text-balance font-display text-headline uppercase leading-none">
           {{ error.statusCode === 404 ? t('error.notFound') : t('error.generic') }}
         </p>
       </div>
@@ -31,8 +31,8 @@ const goHome = () => clearError({redirect: '/'})
         {{ error.statusCode }}
       </p>
 
-      <div class="flex flex-col items-center gap-6">
-        <p class="max-w-md text-sm text-white/50">{{ error.statusMessage }}</p>
+      <div class="flex w-full flex-col items-center gap-6">
+        <p class="max-w-md break-words text-sm text-white/50">{{ error.statusMessage }}</p>
 
         <button
           type="button"

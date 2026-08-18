@@ -93,9 +93,29 @@ function setupScene() {
   scene.environment = environment()
   scene.environmentIntensity = 0.85
 
+  /** on-screen size the model is normalised to in placeModel() */
+  const CAR_SIZE = 5.6
+
   const camera = new THREE.PerspectiveCamera(34, window.innerWidth / window.innerHeight, 0.1, 400)
   camera.position.set(0, 1.15, 9.4)
   camera.lookAt(0, 0, 0)
+
+  /**
+   * Pulls the camera back until the car fits both axes. Portrait phones have a
+   * far narrower horizontal field of view, so a fixed distance cropped the car;
+   * they also get extra padding so it does not fill the whole screen.
+   */
+  const fitCamera = () => {
+    const aspect = window.innerWidth / window.innerHeight
+    camera.aspect = aspect
+
+    const vFov = (camera.fov * Math.PI) / 180
+    const hFov = 2 * Math.atan(Math.tan(vFov / 2) * aspect)
+    const radius = (CAR_SIZE / 2) * (aspect < 0.9 ? 1.18 : 1.02)
+
+    camera.position.z = Math.max(radius / Math.tan(vFov / 2), radius / Math.tan(hFov / 2))
+    camera.updateProjectionMatrix()
+  }
   // the moon lives on its own layer so the warm rim light never tints it
   camera.layers.enable(1)
 
@@ -564,11 +584,11 @@ function setupScene() {
   window.addEventListener('pointermove', onPointerMove, {passive: true})
 
   const onResize = () => {
-    camera.aspect = window.innerWidth / window.innerHeight
-    camera.updateProjectionMatrix()
+    fitCamera()
     renderer.setSize(window.innerWidth, window.innerHeight)
   }
   window.addEventListener('resize', onResize)
+  fitCamera()
 
   carGroup.rotation.set(0.12, -0.6, 0.06)
 
