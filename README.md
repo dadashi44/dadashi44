@@ -14,17 +14,6 @@ Frontend-разработчик из Алматы. Пишу на **Vue 3 и Nuxt
 а ощущаться: аккуратные переходы, честный скролл, отсутствие лишних спиннеров —
 и чтобы всё это укладывалось в бюджет производительности.
 
-## Чем занимаюсь
-
-**Bigplay.gg** · с 2024 — киберспортивная платформа для мобильных игр.
-Перевёл запросы на SSR и срезал TTFB на 35%, нашёл утечку памяти через
-`fuite.js` и уменьшил payload с 3000 КБ до 200 КБ, собрал UI-kit с нуля и
-переделал 40+ страниц, вынес турнирную сетку в npm-пакет `@bigplay/vue-tree-view`.
-
-**Elefanto** · 2022 — 2024 — EdTech-маркетплейс Studyhub, автоматизация
-экстренных вызовов ucc-109 и портал сети ТРЦ mega.kz. Внедрил Feature-Sliced
-Design, покрыл сторы и композаблы тестами, вырос до мидла с ревью и менторством.
-
 ## Стек
 
 ![Vue](https://img.shields.io/badge/Vue_3-4FC08D?logo=vue.js&logoColor=white)
@@ -36,26 +25,12 @@ Design, покрыл сторы и композаблы тестами, выро
 ![SCSS](https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind-06B6D4?logo=tailwindcss&logoColor=white)
 ![Vitest](https://img.shields.io/badge/Vitest-6E9F18?logo=vitest&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-5FA04E?logo=node.js&logoColor=white)
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?logo=nestjs&logoColor=white)
 
 Ещё в работе: SSR, Feature-Sliced Design, Core Web Vitals, JSON-LD и
 структурированные данные, Quasar и Ionic, React Native.
-
-## Проекты
-
-| | | |
-| --- | --- | --- |
-| [bigplay.gg](https://bigplay.gg) | Киберспортивная платформа | Nuxt 3 · Vue 2 · SSR |
-| [mega.kz](https://mega.kz) | Портал сети ТРЦ | Vue 2 · Nuxt · Vuex |
-| [tanda.kg](https://tanda.kg) | Маркетплейс с рассрочкой | React · Next.js |
-| [integro.kz](https://integro.kz) | Платформы для госсектора | Nuxt 3 · GSAP |
-| [norma-paint.kz](https://norma-paint.kz/?lang=ru) | Завод лакокрасочных материалов | Nuxt 3 · CMS |
-| [mbulak.kg](https://mbulak.kg/ru) | Микрокредитная организация | React · Next.js |
-| [tumar.app](https://tumar.app) | Приложение для ЭДО и налогов | React Native |
-| [hft.kz](https://hft.kz) | Приложение для охоты и рыбалки | Ionic · Capacitor |
-
-## Образование и языки
-
-КНУ им. Ж. Баласагына — B.S. Software Engineering, до 2028 · русский родной, английский B1
 
 ## Связаться
 
