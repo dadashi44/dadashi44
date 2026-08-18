@@ -9,7 +9,8 @@ const localized = (path: string, locale: (typeof LOCALES)[number]) =>
 
 export default defineEventHandler((event) => {
   const {public: {siteUrl}} = useRuntimeConfig(event)
-  const site = String(siteUrl).replace(/\/$/, '')
+  // an empty NUXT_PUBLIC_SITE_URL would produce relative URLs here
+  const site = String(siteUrl ?? '').trim().replace(/\/$/, '') || getRequestURL(event).origin
 
   const paths = [...STATIC_PATHS, ...projects.map((p) => `/work/${p.slug}`)]
   const lastmod = new Date().toISOString().slice(0, 10)

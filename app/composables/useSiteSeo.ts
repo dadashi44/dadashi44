@@ -1,7 +1,14 @@
-/** Absolute origin of the deployment, from NUXT_PUBLIC_SITE_URL. */
+/**
+ * Absolute origin of the deployment.
+ *
+ * NUXT_PUBLIC_SITE_URL wins, but an env var that exists and is empty overrides
+ * the config default with '' — which would emit relative canonical and og:url.
+ * Falling back to the request origin keeps them absolute no matter what.
+ */
 export const useSiteUrl = () => {
   const {public: {siteUrl}} = useRuntimeConfig()
-  return String(siteUrl).replace(/\/$/, '')
+  const configured = String(siteUrl ?? '').trim().replace(/\/$/, '')
+  return configured || useRequestURL().origin
 }
 
 export const useAbsoluteUrl = (path: string) => `${useSiteUrl()}${path.startsWith('/') ? path : `/${path}`}`
