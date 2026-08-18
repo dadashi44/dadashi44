@@ -29,9 +29,6 @@ Frontend-разработчик из Алматы. Пишу на **Vue 3 и Nuxt
 ![Node.js](https://img.shields.io/badge/Node.js-5FA04E?logo=node.js&logoColor=white)
 ![NestJS](https://img.shields.io/badge/NestJS-E0234E?logo=nestjs&logoColor=white)
 
-Ещё в работе: SSR, Feature-Sliced Design, Core Web Vitals, JSON-LD и
-структурированные данные, Quasar и Ionic, React Native.
-
 ## Связаться
 
 [![Telegram](https://img.shields.io/badge/Telegram-26A5E4?logo=telegram&logoColor=white)](https://t.me/tadashi_brooo)
