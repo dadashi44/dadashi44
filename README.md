@@ -34,8 +34,3 @@ Frontend-разработчик из Алматы. Пишу на **Vue 3 и Nuxt
 [![Telegram](https://img.shields.io/badge/Telegram-26A5E4?logo=telegram&logoColor=white)](https://t.me/tadashi_brooo)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/d-abasov-e60/)
 [![Email](https://img.shields.io/badge/Email-EA4335?logo=gmail&logoColor=white)](mailto:asian.paradissseee@gmail.com)
-
----
-
-<sub>В этом репозитории лежит исходник моего портфолио — Nuxt 4, GSAP, three.js.
-Как оно устроено и как запустить: **[DEVELOPMENT.md](DEVELOPMENT.md)**</sub>
