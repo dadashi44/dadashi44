@@ -15,6 +15,19 @@
 | Локализация | `@nuxtjs/i18n` — RU (по умолчанию) и EN |
 | Утилиты | `@vueuse/nuxt` |
 
+## Как выглядит
+
+<table>
+<tr>
+<td width="50%"><img src="docs/preview-work.webp" alt="Страница работ"></td>
+<td width="50%"><img src="docs/preview-error.webp" alt="Страница 404 с 3D-сценой"></td>
+</tr>
+<tr>
+<td align="center"><sub>Каталог работ</sub></td>
+<td align="center"><sub>404 — сцена на three.js</sub></td>
+</tr>
+</table>
+
 ## Требования
 
 Nuxt 4.5 требует **Node ≥ 22** (в 20.x падает на `Set.prototype.difference`).

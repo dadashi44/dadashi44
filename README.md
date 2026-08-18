@@ -2,106 +2,68 @@
 
 <img src="public/og-image.png" alt="Dauren Abasov — Frontend Developer" width="820">
 
-<h1>dadashi44 — portfolio</h1>
-
-**Портфолио фронтенд-разработчика.** Nuxt 4 с SSR, анимации на GSAP,
-плавный скролл на Lenis, две локали и 3D-сцена на страницах ошибок.
-
-[![Nuxt](https://img.shields.io/badge/Nuxt-4-00DC82?logo=nuxt.js&logoColor=white)](https://nuxt.com)
-[![Vue](https://img.shields.io/badge/Vue-3-4FC08D?logo=vue.js&logoColor=white)](https://vuejs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![GSAP](https://img.shields.io/badge/GSAP-3.15-88CE02?logo=greensock&logoColor=black)](https://gsap.com)
-[![three.js](https://img.shields.io/badge/three.js-0.185-000000?logo=three.js&logoColor=white)](https://threejs.org)
-[![Tailwind](https://img.shields.io/badge/Tailwind-3-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
-
 </div>
 
----
+## Привет, я Даурен 👋
 
-## О проекте
+Frontend-разработчик из Алматы. Пишу на **Vue 3 и Nuxt 3** с TypeScript, держу
+в рабочем состоянии легаси на Vue 2 / Vuex и беру задачи целиком — от вёрстки
+макета до архитектуры стора и интеграции с API.
 
-Восемь коммерческих проектов из Казахстана и Кыргызстана: киберспортивная
-платформа, маркетплейс, портал сети ТРЦ, госплатформа, производство,
-микрофинансовая организация и два мобильных приложения.
+Больше всего люблю ту часть работы, где интерфейс начинает не просто работать,
+а ощущаться: аккуратные переходы, честный скролл, отсутствие лишних спиннеров —
+и чтобы всё это укладывалось в бюджет производительности.
 
-Сайт — не просто витрина: SSR-рендер, две языковые версии на отдельных URL,
-Open Graph и JSON-LD под каждый кейс, форма обратной связи с доставкой в
-Telegram и бюджет производительности, за которым видно следить.
+## Чем занимаюсь
 
-## Возможности
+**Bigplay.gg** · с 2024 — киберспортивная платформа для мобильных игр.
+Перевёл запросы на SSR и срезал TTFB на 35%, нашёл утечку памяти через
+`fuite.js` и уменьшил payload с 3000 КБ до 200 КБ, собрал UI-kit с нуля и
+переделал 40+ страниц, вынес турнирную сетку в npm-пакет `@bigplay/vue-tree-view`.
 
-| | |
-| --- | --- |
-| **Анимация** | Посимвольный reveal на SplitText, пин-скролл галереи работ, бесшовные marquee с ускорением от скорости прокрутки, магнитные кнопки, кастомный курсор с режимами |
-| **Скролл** | Lenis, синхронизированный с `gsap.ticker` и ScrollTrigger |
-| **Локализация** | RU на `/`, EN на `/en` — тексты интерфейса и все описания проектов |
-| **Темы** | Тёмная и светлая на CSS-переменных, выбор сохраняется |
-| **SEO** | canonical, hreflang, Open Graph с карточкой под каждый кейс, JSON-LD `Person` / `WebSite` / `CreativeWork`, `robots.txt` и `sitemap.xml` |
-| **Формы** | Валидация, honeypot, отправка в Telegram через серверный роут — токен не покидает сервер |
-| **404 / 500** | Космос на three.js с моделью Lexus IS F, летящей в невесомости |
-| **Доступность** | Полная поддержка `prefers-reduced-motion`, работа с клавиатуры, контраст |
-
-## Как выглядит
-
-<table>
-<tr>
-<td width="50%"><img src="docs/preview-work.webp" alt="Страница работ"></td>
-<td width="50%"><img src="docs/preview-error.webp" alt="Страница 404 с 3D-сценой"></td>
-</tr>
-<tr>
-<td align="center"><sub>Каталог работ</sub></td>
-<td align="center"><sub>404 — сцена на three.js</sub></td>
-</tr>
-</table>
+**Elefanto** · 2022 — 2024 — EdTech-маркетплейс Studyhub, автоматизация
+экстренных вызовов ucc-109 и портал сети ТРЦ mega.kz. Внедрил Feature-Sliced
+Design, покрыл сторы и композаблы тестами, вырос до мидла с ревью и менторством.
 
 ## Стек
 
-**Фреймворк** — Nuxt 4 (SSR), Vue 3, TypeScript strict
-**Анимация** — GSAP 3 (ScrollTrigger, SplitText), Lenis, three.js
-**Стили** — Tailwind CSS 3, CSS-переменные для тем
-**Модули** — `@nuxtjs/i18n`, `@nuxt/fonts`, `@vueuse/nuxt`
+![Vue](https://img.shields.io/badge/Vue_3-4FC08D?logo=vue.js&logoColor=white)
+![Nuxt](https://img.shields.io/badge/Nuxt_3-00DC82?logo=nuxt.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![Pinia](https://img.shields.io/badge/Pinia-FFD859?logo=vue.js&logoColor=black)
+![GSAP](https://img.shields.io/badge/GSAP-88CE02?logo=greensock&logoColor=black)
+![SCSS](https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-06B6D4?logo=tailwindcss&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-6E9F18?logo=vitest&logoColor=white)
 
-## Запуск
+Ещё в работе: SSR, Feature-Sliced Design, Core Web Vitals, JSON-LD и
+структурированные данные, Quasar и Ionic, React Native.
 
-> Требуется **Node 22+** — на 20.x Nuxt 4.5 падает на `Set.prototype.difference`.
+## Проекты
 
-```bash
-bun install
-cp .env.example .env     # заполните, если нужна форма обратной связи
-bun run dev              # http://localhost:5050
-```
+| | | |
+| --- | --- | --- |
+| [bigplay.gg](https://bigplay.gg) | Киберспортивная платформа | Nuxt 3 · Vue 2 · SSR |
+| [mega.kz](https://mega.kz) | Портал сети ТРЦ | Vue 2 · Nuxt · Vuex |
+| [tanda.kg](https://tanda.kg) | Маркетплейс с рассрочкой | React · Next.js |
+| [integro.kz](https://integro.kz) | Платформы для госсектора | Nuxt 3 · GSAP |
+| [norma-paint.kz](https://norma-paint.kz/?lang=ru) | Завод лакокрасочных материалов | Nuxt 3 · CMS |
+| [mbulak.kg](https://mbulak.kg/ru) | Микрокредитная организация | React · Next.js |
+| [tumar.app](https://tumar.app) | Приложение для ЭДО и налогов | React Native |
+| [hft.kz](https://hft.kz) | Приложение для охоты и рыбалки | Ionic · Capacitor |
 
-```bash
-bun run build            # прод-сборка
-bun run preview
-bun run typecheck
-```
+## Образование и языки
 
-### Переменные окружения
+КНУ им. Ж. Баласагына — B.S. Software Engineering, до 2028 · русский родной, английский B1
 
-| Переменная | Зачем |
-| --- | --- |
-| `NUXT_PUBLIC_SITE_URL` | Абсолютный origin для canonical, `og:url`, `hreflang` и sitemap |
-| `NUXT_TELEGRAM_BOT_TOKEN` | Доставка формы обратной связи |
-| `NUXT_TELEGRAM_CHAT_ID` | Чат, куда падают заявки |
+## Связаться
 
-Без токена и чата форма отвечает `501`, а интерфейс предлагает написать письмом.
+[![Telegram](https://img.shields.io/badge/Telegram-26A5E4?logo=telegram&logoColor=white)](https://t.me/tadashi_brooo)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/d-abasov-e60/)
+[![Email](https://img.shields.io/badge/Email-EA4335?logo=gmail&logoColor=white)](mailto:asian.paradissseee@gmail.com)
 
-## Структура
+---
 
-```
-app/          компоненты, страницы, композаблы, данные проектов
-i18n/locales/ тексты интерфейса — ru.json и en.json
-server/       api формы, robots.txt и sitemap.xml
-public/       скриншоты кейсов, иконки, OG-карточки, 3D-модель
-scripts/      оптимизация GLB перед публикацией
-```
-
-Подробности реализации — как устроены анимации, локализация, SEO, страницы
-ошибок и подготовка 3D-модели — в **[DEVELOPMENT.md](DEVELOPMENT.md)**.
-
-## Контакты
-
-**Даурен Абасов** — frontend-разработчик, Алматы
-
-[Telegram](https://t.me/tadashi_brooo) · [LinkedIn](https://www.linkedin.com/in/d-abasov-e60/) · [GitHub](https://github.com/dadashi44) · [asian.paradissseee@gmail.com](mailto:asian.paradissseee@gmail.com)
+<sub>В этом репозитории лежит исходник моего портфолио — Nuxt 4, GSAP, three.js.
+Как оно устроено и как запустить: **[DEVELOPMENT.md](DEVELOPMENT.md)**</sub>
