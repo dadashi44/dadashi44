@@ -198,7 +198,7 @@ export const projects: Project[] = [
         'Multi-language support and SEO markup'
       ]
     },
-    stack: ['Nuxt 3', 'TypeScript', 'GSAP', 'SCSS', 'i18n'],
+    stack: ['Nuxt 3', 'TypeScript', 'SCSS', 'i18n'],
     href: 'https://integro.kz',
     image: '/works/integro.webp',
     status: 'production',
@@ -321,7 +321,7 @@ export const projects: Project[] = [
         'Push notifications for tax calendar deadlines'
       ]
     },
-    stack: ['React Native', 'TypeScript', 'REST API', 'iOS / Android'],
+    stack: ['Quasar', 'TypeScript', 'REST API', 'iOS / Android'],
     href: 'https://tumar.app',
     image: '/works/tumar.webp',
     status: 'production',
