@@ -287,6 +287,51 @@ export const projects: Project[] = [
     palette: {from: '#13432b', to: '#3fbf7f', ink: '#effff6'}
   },
   {
+    slug: 'almaty109',
+    name: 'ALMATY 109',
+    client: {ru: 'Служба спасения 109 · Алматы', en: 'Emergency service 109 · Almaty'},
+    year: '2024',
+    kind: 'web',
+    role: {ru: 'Frontend-разработчик', en: 'Frontend developer'},
+    summary: {
+      ru: 'CRM городской службы спасения: приём звонков через Asterisk, регистрация обращений, назначение экипажей и отчётность для акимата.',
+      en: 'A CRM for the city emergency service: calls taken through Asterisk, incidents registered, crews dispatched and reports filed for the city administration.'
+    },
+    description: {
+      ru: [
+        '109 — единая служба спасения Алматы. Система ведёт обращение от входящего звонка до оценки заявителем: оператор первой линии принимает вызов и заполняет карточку, вторая линия назначает экипаж, исполнитель отчитывается прямо с места события.',
+        'Шесть ролей со своими рабочими местами, семь статусов заявки, меняющихся строго по порядку, и отчёты для акимата. Фронтенд собран по Feature-Sliced Design — иначе роли и статусы быстро расползлись бы по общему коду.'
+      ],
+      en: [
+        '109 is the unified emergency service of Almaty. The system carries an incident from the incoming call to the caller’s rating: a first-line operator answers and fills in the card, the second line dispatches a crew, the field responder reports straight from the scene.',
+        'Six roles with their own workspaces, seven incident states that may only move in one direction, and reports for the city administration. The frontend follows Feature-Sliced Design — otherwise roles and states would leak across shared code.'
+      ]
+    },
+    contribution: {
+      ru: [
+        'Рабочее место оператора 1-й линии: очередь входящих звонков, поп-ап вызова с ответом по Enter, карточка обращения с автосохранением каждые 30 секунд',
+        'Интеграция с Asterisk: номер звонящего и запись разговора подтягиваются в карточку автоматически',
+        'Маршрут статусов от «Зарегистрировано» до «На оценке пользователя» с ролевым доступом к переходам',
+        'Назначение нескольких экипажей с техникой из справочника с поиском по госномеру и промежуточные рапорты по каждому',
+        'Конструктор детального и итогового отчётов с фильтрами и выгрузкой в Excel',
+        'Адаптивная версия для исполнителя: рапорт заполняется с телефона прямо с места события'
+      ],
+      en: [
+        'The first-line operator workspace: an incoming call queue, a call pop-up answerable with Enter, and an incident card that autosaves every 30 seconds',
+        'Asterisk integration: the caller number and the call recording land in the card automatically',
+        'The state route from “Registered” to “Awaiting caller rating”, with role-based access to each transition',
+        'Dispatching several crews with vehicles from a directory searchable by plate number, each filing its own interim report',
+        'A builder for detailed and summary reports with filters and Excel export',
+        'A responsive layout for field responders: the report is filled in from a phone at the scene'
+      ]
+    },
+    stack: ['Vue 3', 'TypeScript', 'FSD', 'Asterisk'],
+    href: 'https://almaty109.kz',
+    image: '/works/almaty109.webp',
+    status: 'production',
+    palette: {from: '#4a0f18', to: '#e04552', ink: '#fff0f1'}
+  },
+  {
     slug: 'tumar',
     name: 'TUMAR',
     client: {ru: 'Tumar · Кыргызстан', en: 'Tumar · Kyrgyzstan'},
