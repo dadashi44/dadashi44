@@ -28,7 +28,8 @@
     "@types/node": "^26.2.0",
     "@types/three": "^0.185.4",
     "typescript": "5.9.3",
-    "vue-tsc": "^3.3.10"
+    "vue-tsc": "^3.3.10",
+    "vue-why-render": "https://github.com/dadashi44/vue-why-render/releases/download/v0.1.4/vue-why-render-0.1.4.tgz"
   },
   "engines": {
     "node": ">=22.0.0"
