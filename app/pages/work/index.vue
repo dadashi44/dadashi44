@@ -7,6 +7,14 @@ useSiteSeo({
   description: () => t('work.seoDescription')
 })
 
+// hoisted out of the template on purpose: an inline array literal hands PageHero
+// a fresh prop reference on every filter/view click and re-renders it for nothing
+const heroMeta = computed(() => [
+  {label: t('work.metaProjects'), value: String(projects.value.length)},
+  {label: t('work.metaYears'), value: '2022 — 2026'},
+  {label: t('work.metaRole'), value: t('work.roleValue')}
+])
+
 type Filter = 'all' | 'web' | 'mobile'
 const filter = ref<Filter>('all')
 const view = ref<'grid' | 'list'>('grid')
@@ -40,16 +48,7 @@ watch([filter, view], async () => {
 
 <template>
   <div>
-    <PageHero
-      index="01"
-      :title="t('work.title')"
-      :subtitle="t('work.subtitle')"
-      :meta="[
-        {label: t('work.metaProjects'), value: String(projects.length)},
-        {label: t('work.metaYears'), value: '2022 — 2026'},
-        {label: t('work.metaRole'), value: t('work.roleValue')}
-      ]"
-    >
+    <PageHero index="01" :title="t('work.title')" :subtitle="t('work.subtitle')" :meta="heroMeta">
       <template #eyebrow>{{ t('work.eyebrow') }}</template>
     </PageHero>
 
