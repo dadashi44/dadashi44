@@ -52,22 +52,21 @@ const channels = computed(() => [
   {label: t('contact.labelLinkedin'), value: 'Dauren Abasov', href: 'https://www.linkedin.com/in/d-abasov-e60/'}
 ])
 
+// see work/index.vue: inline in the template this array would be rebuilt on
+// every keystroke in the form and re-render PageHero with identical data
+const heroMeta = computed(() => [
+  {label: t('contact.metaStatus'), value: t('contact.metaStatusValue')},
+  {label: t('contact.metaTimezone'), value: t('contact.metaTimezoneValue')},
+  {label: t('contact.metaResponse'), value: t('contact.metaResponseValue')}
+])
+
 const fieldClass =
   'w-full border-b border-line/25 bg-transparent py-4 text-lg outline-none transition-colors duration-300 placeholder:text-ink-faint focus:border-accent'
 </script>
 
 <template>
   <div>
-    <PageHero
-      index="03"
-      :title="t('contact.title')"
-      :subtitle="t('contact.subtitle')"
-      :meta="[
-        {label: t('contact.metaStatus'), value: t('contact.metaStatusValue')},
-        {label: t('contact.metaTimezone'), value: t('contact.metaTimezoneValue')},
-        {label: t('contact.metaResponse'), value: t('contact.metaResponseValue')}
-      ]"
-    >
+    <PageHero index="03" :title="t('contact.title')" :subtitle="t('contact.subtitle')" :meta="heroMeta">
       <template #eyebrow>{{ t('contact.eyebrow') }}</template>
     </PageHero>
 

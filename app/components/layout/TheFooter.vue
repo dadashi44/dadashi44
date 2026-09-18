@@ -16,24 +16,6 @@ const social = [
   {name: 'LinkedIn', path: 'https://www.linkedin.com/in/d-abasov-e60/'},
   {name: 'Instagram', path: 'https://www.instagram.com/daurenkx/'}
 ]
-
-const time = ref('')
-let timer: ReturnType<typeof setInterval>
-
-onMounted(() => {
-  const tick = () => {
-    time.value = new Intl.DateTimeFormat('en-GB', {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      timeZone: 'Asia/Almaty'
-    }).format(new Date())
-  }
-  tick()
-  timer = setInterval(tick, 1000)
-})
-
-onBeforeUnmount(() => clearInterval(timer))
 </script>
 
 <template>
@@ -83,7 +65,7 @@ onBeforeUnmount(() => clearInterval(timer))
       >
         <span>{{ t('common.rights', {year}) }}</span>
         <ClientOnly>
-          <span>{{ t('common.location', {time}) }}</span>
+          <FooterClock />
           <template #fallback><span>{{ t('common.location', {time: '--:--:--'}) }}</span></template>
         </ClientOnly>
         <span>{{ t('common.builtWith') }}</span>

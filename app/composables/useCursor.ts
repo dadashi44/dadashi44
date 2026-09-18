@@ -13,6 +13,9 @@ const state = ref<CursorState>({mode: 'default', label: ''})
 
 export const useCursor = () => {
   const set = (mode: CursorMode, label = '') => {
+    // moving between two elements with the same mode would otherwise hand the
+    // cursor a new object holding the same values — a render with nothing to show
+    if (state.value.mode === mode && state.value.label === label) return
     state.value = {mode, label}
   }
   const reset = () => set('default')
