@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', '@nuxt/fonts', '@nuxtjs/i18n'],
 
   i18n: {
-    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://dadashiii.netlify.app',
+    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://dadashi44.vercel.app',
     defaultLocale: 'ru',
     // RU lives at /, EN at /en/* — good for indexing both versions
     strategy: 'prefix_except_default',
@@ -36,7 +36,7 @@ export default defineNuxtConfig({
     telegramChatId: '',
     public: {
       // absolute origin used for canonical, og:url, hreflang and the sitemap
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://dadashiii.netlify.app'
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://dadashi44.vercel.app'
     }
   },
 
