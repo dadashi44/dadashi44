@@ -5,7 +5,6 @@ const {introDone} = useAppState()
 
 const root = ref<HTMLElement | null>(null)
 const roleEl = ref<HTMLElement | null>(null)
-const videoWrap = ref<HTMLElement | null>(null)
 
 const roles = computed(() => (tm('home.roles') as unknown[]).map((r) => rt(r as string)))
 /** the list renders roles + a duplicate of the first one for a seamless loop */
@@ -58,17 +57,6 @@ onMounted(() => {
       })
       rotate.set(roleEl.value, {yPercent: 0})
     }
-
-    // parallax the video inside its mask so no edge is ever exposed
-    gsap.fromTo(
-      videoWrap.value!.querySelector('video'),
-      {yPercent: -5},
-      {
-        yPercent: 5,
-        ease: 'none',
-        scrollTrigger: {trigger: videoWrap.value, start: 'top bottom', end: 'bottom top', scrub: true}
-      }
-    )
   }, root.value)
 
   onBeforeUnmount(() => {
@@ -119,16 +107,13 @@ onMounted(() => {
     </div>
 
     <div data-hero-media class="mt-14 overflow-hidden lg:mt-20">
-      <div ref="videoWrap" class="h-[46vh] w-full lg:h-[78vh]">
-        <video
-          class="h-full w-full scale-110 object-cover"
-          src="/banner.mp4"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="metadata"
-        />
+      <div class="h-[46vh] w-full lg:h-[78vh]">
+        <ClientOnly>
+          <HeroCanvas />
+          <template #fallback>
+            <div class="h-full w-full bg-surface-alt" />
+          </template>
+        </ClientOnly>
       </div>
     </div>
   </section>
