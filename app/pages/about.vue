@@ -81,7 +81,7 @@ onMounted(() => {
 
         <div class="flex flex-wrap gap-4 pt-4">
           <ArrowLink :to="localePath('/contact')" :label="t('about.hireMe')" />
-          <ArrowLink href="/Abasov_Dauren_Resume.pdf" :label="t('common.downloadCv')" />
+          <ArrowLink href="/resume.pdf" :label="t('common.downloadCv')" />
           <ArrowLink href="https://github.com/dadashi44" label="GitHub" />
         </div>
       </div>

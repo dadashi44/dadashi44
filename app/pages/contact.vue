@@ -180,7 +180,7 @@ const fieldClass =
 
         <div>
           <p class="mb-6 font-display text-xs uppercase tracking-[0.3em] text-ink-faint">{{ t('contact.resume') }}</p>
-          <ArrowLink href="/Abasov_Dauren_Resume.pdf" :label="t('contact.downloadCvPdf')" />
+          <ArrowLink href="/resume.pdf" :label="t('contact.downloadCvPdf')" />
         </div>
 
         <div class="rounded-xl border border-line/15 p-6">
