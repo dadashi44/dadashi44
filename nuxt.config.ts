@@ -36,7 +36,10 @@ export default defineNuxtConfig({
     telegramChatId: '',
     public: {
       // absolute origin used for canonical, og:url, hreflang and the sitemap
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://dadashi44.vercel.app'
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://dadashi44.vercel.app',
+      // set via NUXT_PUBLIC_POSTHOG_KEY / NUXT_PUBLIC_POSTHOG_HOST; analytics stay off without a key
+      posthogKey: '',
+      posthogHost: 'https://eu.i.posthog.com'
     }
   },
 
