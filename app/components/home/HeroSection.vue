@@ -33,11 +33,7 @@ onMounted(() => {
         tl.from(split.chars, {yPercent: 120, duration: 1.1, stagger: 0.025}, i * 0.12)
       })
 
-      tl.from('[data-hero-meta]', {y: 20, autoAlpha: 0, duration: 0.8, stagger: 0.1}, 0.5).from(
-        '[data-hero-media]',
-        {clipPath: 'inset(100% 0% 0% 0%)', duration: 1.4, ease: 'expo.inOut'},
-        0.3
-      )
+      tl.from('[data-hero-meta]', {y: 20, autoAlpha: 0, duration: 0.8, stagger: 0.1}, 0.5)
 
       intro = tl
       playIntro()
@@ -67,7 +63,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section ref="root" class="relative pt-16 lg:pt-24">
+  <section ref="root" class="relative pb-20 pt-16 lg:pb-28 lg:pt-24">
     <div class="container">
       <div class="flex flex-wrap items-end justify-between gap-6">
         <p data-hero-meta class="max-w-xs text-sm leading-relaxed text-ink-soft">
@@ -106,15 +102,5 @@ onMounted(() => {
       </div>
     </div>
 
-    <div data-hero-media class="mt-14 overflow-hidden lg:mt-20">
-      <div class="h-[46vh] w-full lg:h-[78vh]">
-        <ClientOnly>
-          <HeroCanvas />
-          <template #fallback>
-            <div class="h-full w-full bg-surface-alt" />
-          </template>
-        </ClientOnly>
-      </div>
-    </div>
   </section>
 </template>

@@ -15,6 +15,7 @@ useSiteSeo({
     <ServicesSection />
     <WorksShowcase />
     <StackSection />
+    <LocationSection />
     <ContactCta />
   </div>
 </template>

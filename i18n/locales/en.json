@@ -63,12 +63,18 @@
     "footerCta": "Got an idea? Let's build it together.",
     "startProject": "Start a project",
     "map": {
-      "sheet": "Sheet 01 — Terrain",
+      "sheet": "Terrain — Trans-Ili Alatau",
       "place": "Almaty, Kazakhstan",
       "marker": "Based here",
       "hint": "Move your cursor over the map",
       "metres": "m",
       "km": "km"
+    },
+    "location": {
+      "title": "Where I am",
+      "heading": "Almaty, Kazakhstan",
+      "text": "I work from Almaty with clients in Kazakhstan and Kyrgyzstan — remotely, in Russian or English. I reply within a day.",
+      "timeLabel": "Now in Almaty"
     }
   },
   "services": {

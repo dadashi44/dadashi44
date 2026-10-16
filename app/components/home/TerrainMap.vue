@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * Hero backdrop: a living topographic map. Domain-warped noise is drawn as
+ * A living topographic map of Almaty for the location section. Domain-warped noise is drawn as
  * contour lines that drift slowly and light up in the accent colour around
  * the cursor.
  *
@@ -136,8 +136,8 @@ onMounted(() => {
   try {
     stop = setup(canvas.value)
   } catch (err) {
-    // the hero must survive a broken GPU — the CSS backdrop stays visible
-    console.warn('[HeroCanvas] disabled:', err)
+    // the section must survive a broken GPU — the CSS backdrop stays visible
+    console.warn('[TerrainMap] disabled:', err)
     failed.value = true
   }
 })
@@ -220,9 +220,15 @@ function setup(surface: HTMLCanvasElement) {
 
   const onPointer = (e: PointerEvent) => {
     const rect = surface.getBoundingClientRect()
-    mouse.tx = (e.clientX - rect.left) / rect.width
-    mouse.ty = 1 - (e.clientY - rect.top) / rect.height
-    mouse.thover = e.pointerType === 'mouse' ? 1 : 0
+    const x = (e.clientX - rect.left) / rect.width
+    const y = (e.clientY - rect.top) / rect.height
+    const inside = x >= 0 && x <= 1 && y >= 0 && y <= 1
+    // the glow fades out in place when the cursor leaves the map
+    if (inside) {
+      mouse.tx = x
+      mouse.ty = 1 - y
+    }
+    mouse.thover = inside && e.pointerType === 'mouse' ? 1 : 0
   }
   const onLeave = () => (mouse.thover = 0)
 
@@ -258,7 +264,7 @@ function setup(surface: HTMLCanvasElement) {
     gl.uniform1f(uniforms.time, time)
     gl.uniform2f(uniforms.mouse, mouse.x, mouse.y)
     gl.uniform1f(uniforms.hover, mouse.hover)
-    // 0 → 1 while the hero crosses the viewport. Read here rather than passed
+    // 0 → 1 while the map crosses the viewport. Read here rather than passed
     // in as a prop, so scrolling never re-renders the parent.
     const rect = surface.getBoundingClientRect()
     gl.uniform1f(uniforms.scroll, (window.innerHeight - rect.top) / (window.innerHeight + rect.height))
@@ -281,7 +287,7 @@ function setup(surface: HTMLCanvasElement) {
     else cancelAnimationFrame(frame)
   }
 
-  // no point burning GPU on a hero that's scrolled away or in a hidden tab
+  // no point burning GPU on a map that's scrolled away or in a hidden tab
   const io = new IntersectionObserver(([entry]) => {
     visible = !!entry?.isIntersecting
     sync()
