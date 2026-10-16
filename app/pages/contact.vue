@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const {t, tm, rt} = useI18n()
+const resumeHref = useResumeHref()
 
 useSiteSeo({
   title: () => t('contact.seoTitle'),
@@ -180,7 +181,7 @@ const fieldClass =
 
         <div>
           <p class="mb-6 font-display text-xs uppercase tracking-[0.3em] text-ink-faint">{{ t('contact.resume') }}</p>
-          <ArrowLink href="/resume.pdf" :label="t('contact.downloadCvPdf')" />
+          <ArrowLink :href="resumeHref" :label="t('contact.downloadCvPdf')" />
         </div>
 
         <div class="rounded-xl border border-line/15 p-6">

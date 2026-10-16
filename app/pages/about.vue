@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const {t, tm, rt} = useI18n()
 const localePath = useLocalePath()
+const resumeHref = useResumeHref()
 
 useSiteSeo({
   title: () => t('about.seoTitle'),
@@ -81,7 +82,7 @@ onMounted(() => {
 
         <div class="flex flex-wrap gap-4 pt-4">
           <ArrowLink :to="localePath('/contact')" :label="t('about.hireMe')" />
-          <ArrowLink href="/resume.pdf" :label="t('common.downloadCv')" />
+          <ArrowLink :href="resumeHref" :label="t('common.downloadCv')" />
           <ArrowLink href="https://github.com/dadashi44" label="GitHub" />
         </div>
       </div>
