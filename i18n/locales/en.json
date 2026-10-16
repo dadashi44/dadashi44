@@ -63,12 +63,22 @@
     "footerCta": "Got an idea? Let's build it together.",
     "startProject": "Start a project",
     "map": {
-      "sheet": "Terrain — Trans-Ili Alatau",
-      "place": "Almaty, Kazakhstan",
+      "sheet": "Almaty & the Trans-Ili Alatau",
       "marker": "Based here",
       "hint": "Move your cursor over the map",
       "metres": "m",
-      "km": "km"
+      "km": "km",
+      "interval": "Contours every 100 m",
+      "north": "N",
+      "credit": "Elevation: SRTM / AWS Terrain Tiles",
+      "places": {
+        "almaty": "Almaty",
+        "koktobe": "Kok-Tobe",
+        "medeu": "Medeu",
+        "shymbulak": "Shymbulak",
+        "bao": "Big Almaty Lake",
+        "talgar": "Talgar Peak"
+      }
     },
     "location": {
       "title": "Where I am",
