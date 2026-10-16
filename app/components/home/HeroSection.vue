@@ -95,7 +95,7 @@ onMounted(() => {
           </span>
         </div>
 
-        <div data-hero-meta class="flex items-center gap-4">
+        <div data-hero-meta class="flex flex-wrap items-center gap-3 sm:gap-4">
           <ArrowLink :to="localePath('/work')" :label="t('home.selectedWork')" />
           <ArrowLink :to="localePath('/contact')" :label="t('home.sayHello')" />
         </div>

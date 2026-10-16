@@ -42,7 +42,7 @@ onMounted(() => {
           <a
             v-cursor="{mode: 'view', label: t('common.mail')}"
             href="mailto:asian.paradissseee@gmail.com"
-            class="inline-block rounded-full bg-accent px-10 py-5 text-sm uppercase tracking-[0.2em] text-white"
+            class="inline-block max-w-full break-all rounded-full bg-accent px-6 py-4 text-xs uppercase tracking-[0.12em] text-white sm:px-10 sm:py-5 sm:text-sm sm:tracking-[0.2em]"
           >
             asian.paradissseee@gmail.com
           </a>

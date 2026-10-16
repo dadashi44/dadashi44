@@ -46,7 +46,7 @@ onMounted(() => {
         </div>
 
         <div>
-          <h3 class="font-display text-5xl uppercase leading-none lg:text-6xl">{{ service.title }}</h3>
+          <h3 class="break-words font-display text-[2.5rem] uppercase leading-none sm:text-5xl lg:text-6xl">{{ service.title }}</h3>
           <p class="mt-5 text-sm leading-relaxed text-ink-soft">{{ service.body }}</p>
           <ul class="mt-6 flex flex-wrap gap-2">
             <li
