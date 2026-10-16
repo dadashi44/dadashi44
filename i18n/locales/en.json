@@ -41,8 +41,8 @@
   },
   "home": {
     "seoTitle": "Dauren Abasov — Frontend Developer",
-    "seoDescription": "Portfolio of an Almaty-based frontend developer: Nuxt 3, Vue 3, TypeScript, GSAP. Esports, marketplaces, fintech, govtech and mobile apps.",
-    "heroIntro": "Frontend developer based in Almaty. Vue, Nuxt 3, TypeScript — interfaces that load fast and move well.",
+    "seoDescription": "Dauren Abasov, a frontend developer based in Almaty. Websites, online stores, customer portals and mobile apps that are fast and easy to find in search. Esports, retail, fintech, govtech.",
+    "heroIntro": "I build websites, web services and mobile apps that load fast, rank in search and feel good to use. Based in Almaty, working remotely.",
     "heroStatus": "Available for work — 2026",
     "heroRolePrefix": "I'm a",
     "roles": [
@@ -57,45 +57,45 @@
     "servicesTitle": "What I can help with",
     "worksTitle": "Selected work — 2022 / 2026",
     "moreProjects": "More\nprojects",
-    "stackTitle": "Stack & numbers",
+    "stackTitle": "Numbers & tools",
     "ctaTitle": "Let's work together",
-    "ctaText": "Open to freelance, product teams and interesting experiments with motion.",
+    "ctaText": "Open to freelance work and product teams. Tell me about the task — I'll come back with an approach, a timeline and a budget.",
     "footerCta": "Got an idea? Let's build it together.",
     "startProject": "Start a project"
   },
   "services": {
     "design": {
       "title": "Design",
-      "body": "Prototypes and design systems in Figma: grids, typography, component states. Design that can be built without surprises in the markup.",
+      "body": "I work out how the product will look and behave before any code is written: structure, Figma mockups, one consistent style. You see the result up front, and development runs without surprises.",
       "points": [
-        "UI / UX",
-        "Design system",
-        "Prototyping"
+        "Interfaces",
+        "Consistent style",
+        "Prototypes"
       ]
     },
     "build": {
       "title": "Build",
-      "body": "Vue, Nuxt, React and TypeScript. SSR, REST integrations, state in Pinia, motion with GSAP — from a landing page to a marketplace or a mobile app.",
+      "body": "Websites, online stores, customer portals and mobile apps — from a landing page to a marketplace. I connect payments, telephony and the other services you already use.",
       "points": [
-        "Nuxt / SSR",
-        "TypeScript",
+        "Sites & stores",
+        "Customer portals",
         "Mobile apps"
       ]
     },
     "grow": {
       "title": "Grow",
-      "body": "Core Web Vitals, structured data, accessibility and analytics. I make sure a product gets faster after launch, not heavier.",
+      "body": "I make sure the site opens fast, shows up in Google and works for everyone. I set up analytics so you can see where customers come from — and the product keeps getting better after launch.",
       "points": [
-        "Performance",
+        "Speed",
         "SEO",
-        "Accessibility"
+        "Analytics"
       ]
     }
   },
   "stats": {
     "years": "years in commercial development",
-    "ttfb": "% lower TTFB after moving requests to SSR",
-    "payload": "% smaller payload after fixing a memory leak",
+    "ttfb": "% faster first load on BIGPLAY.GG pages",
+    "payload": "% lighter pages: 3 MB → 200 KB",
     "pages": "+ pages and widgets in the BIGPLAY.GG redesign"
   },
   "work": {
@@ -130,10 +130,10 @@
   },
   "about": {
     "seoTitle": "About — Dauren Abasov",
-    "seoDescription": "Frontend developer based in Almaty: Vue 3, Nuxt 3, TypeScript, GSAP. Experience, education and stack.",
+    "seoDescription": "Dauren Abasov, a frontend developer based in Almaty, building websites and apps since 2022: esports, retail, fintech, govtech. Experience, education and how I work.",
     "eyebrow": "Who is behind this",
     "title": "About",
-    "subtitle": "Frontend developer, Almaty — Vue 3, Nuxt 3, TypeScript. Currently at Bigplay.gg.",
+    "subtitle": "Frontend developer based in Almaty. Building websites and apps since 2022, currently at Bigplay.gg.",
     "metaBased": "Based in",
     "metaBasedValue": "Almaty, KZ",
     "metaExperience": "Experience",
@@ -142,10 +142,10 @@
     "metaLanguagesValue": "RU native / EN B1",
     "hireMe": "Hire me",
     "bio": [
-      "I'm Dauren, a frontend developer based in Almaty. I write Vue 3 and Nuxt 3 with TypeScript and have kept legacy Vue 2 / Vuex alive too — I take work from turning a mockup into markup all the way to store architecture and API integration.",
-      "Right now I'm building the BIGPLAY.GG esports platform: moved requests to SSR and cut TTFB by 35%, tracked down a memory leak with fuite.js and shrank the payload from 3000 KB to 200 KB, built a UI kit from scratch and reworked 40+ pages and 20 widgets.",
-      "Before that, two years at Elefanto: the Studyhub EdTech marketplace, the ucc-109 emergency call automation and the mega.kz mall portal. I introduced Feature-Sliced Design there, covered stores and composables with Jest/Vitest, and grew into a middle role running reviews and mentoring.",
-      "I like interfaces that don't just work but feel right: careful transitions, honest scrolling, no needless spinners — and all of it inside a performance budget."
+      "I'm Dauren, a frontend developer based in Almaty. I build the part of a product your customers see and use: websites, customer portals, mobile apps — from the first mockup to launch and the improvements after it.",
+      "Right now I'm growing the BIGPLAY.GG esports platform: its pages start loading 35% faster and weigh 15 times less (3 MB → 200 KB). I also built a single design system for the platform from scratch and reworked 40+ pages and 20 widgets on it.",
+      "Before that, two years at Elefanto: the Studyhub education marketplace, the call system of the 109 emergency service and the MEGA mall portal. There I set up a clear project architecture, covered the code with tests — fewer bugs after release — and grew into a middle role, reviewing colleagues’ code and mentoring newcomers.",
+      "I like interfaces that don't just work but feel right: smooth transitions, no needless waiting — while the site stays fast."
     ],
     "experience": "Experience",
     "education": "Education",
@@ -156,13 +156,13 @@
         "year": "2024 — now",
         "title": "Bigplay.gg",
         "role": "Frontend Developer",
-        "place": "Almaty · Nuxt 3, Vue 2 admin, SSR, Core Web Vitals, JSON-LD, security headers"
+        "place": "Almaty · speed, SEO, security and the platform redesign"
       },
       {
         "year": "2022 — 2024",
         "title": "Elefanto",
         "role": "Frontend Developer → Middle",
-        "place": "Studyhub, ucc-109, mega.kz · FSD, Pinia/Vuex, antd, vue-query, Jest/Vitest"
+        "place": "Studyhub, the 109 service, mega.kz · architecture, tests, code review"
       }
     ],
     "schools": [
@@ -177,11 +177,11 @@
     "highlights": [
       {
         "value": "−35%",
-        "label": "TTFB after moving requests to SSR in Nuxt 3"
+        "label": "waiting time before a page starts to load"
       },
       {
         "value": "−93%",
-        "label": "payload: 3000 KB → 200 KB after fixing a memory leak"
+        "label": "page weight: 3 MB → 200 KB — fast even on mobile data"
       },
       {
         "value": "40+",
@@ -189,14 +189,14 @@
       },
       {
         "value": "1000+",
-        "label": "lines extracted into the {'@'}bigplay/vue-tree-view package"
+        "label": "lines of tournament-bracket code moved into a standalone library for other projects"
       }
     ],
     "principlesList": [
       "Content and structure first, effects second",
       "Motion should carry meaning, not steal attention",
       "Mobile is the starting point, not an afterthought",
-      "Performance is a feature, not a someday optimisation"
+      "Speed is part of the product, not a someday optimisation"
     ]
   },
   "contact": {

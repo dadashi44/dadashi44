@@ -49,30 +49,30 @@ export const projects: Project[] = [
     },
     description: {
       ru: [
-        'BIGPLAY проводит регулярные турниры по PUBG Mobile и Mobile Legends: Bang Bang для русскоязычной аудитории. Публичная часть на Nuxt 3, админ-панель — легаси на Vue 2.',
-        'Здесь я не только пишу фичи, но и разбираюсь с наследством: производительность, архитектура, SEO и безопасность. Платформа живёт под нагрузкой турнирных дней, поэтому каждая лишняя сотня килобайт видна в метриках.'
+        'BIGPLAY проводит регулярные турниры по PUBG Mobile и Mobile Legends: Bang Bang для русскоязычной аудитории. Я работаю и над сайтом для игроков, и над админкой, через которую команда ведёт турниры.',
+        'Кроме новых функций, я отвечаю за то, чтобы платформа была быстрой, надёжной и хорошо находилась в поиске. В дни турниров на неё приходит пиковая нагрузка, и любая задержка сразу заметна игрокам.'
       ],
       en: [
-        'BIGPLAY runs regular PUBG Mobile and Mobile Legends: Bang Bang tournaments for a Russian-speaking audience. The public site is Nuxt 3; the admin panel is legacy Vue 2.',
-        'Beyond shipping features, I deal with the inherited codebase: performance, architecture, SEO and security. The platform takes real load on tournament days, so every extra hundred kilobytes shows up in the metrics.'
+        'BIGPLAY runs regular PUBG Mobile and Mobile Legends: Bang Bang tournaments for a Russian-speaking audience. I work on both the site players use and the admin panel the team runs tournaments from.',
+        'Beyond new features, I make sure the platform is fast, reliable and easy to find in search. Tournament days bring peak traffic, and players notice any delay straight away.'
       ]
     },
     contribution: {
       ru: [
-        'Перенос запросов на SSR средствами Nuxt 3 — TTFB ниже на 35%',
-        'Поиск утечки памяти через fuite.js: payload с 3000 КБ до 200 КБ (−93%)',
-        'Полный редизайн: собственный UI-kit с нуля, 40+ страниц и 20 виджетов',
-        'Турнирная сетка вынесена в npm-пакет @bigplay/vue-tree-view (Vue 2 и 3) — минус 1000+ строк из ядра',
-        'LCP и CLS: WebP/AVIF, ленивая загрузка, critical CSS, фиксированные размеры блоков',
-        'JSON-LD (Article, NewsArticle, Organization, ImageObject) и заголовки HSTS, CSP, X-Frame-Options'
+        'Страницы начинают открываться на 35% быстрее: данные готовятся на сервере заранее',
+        'Нашёл и исправил утечку памяти — страница стала весить в 15 раз меньше (3 МБ → 200 КБ)',
+        'Полный редизайн: единый дизайн с нуля, 40+ страниц и 20 виджетов',
+        'Турнирная сетка вынесена в отдельную библиотеку: её можно подключать в других проектах, а основной код стал проще на 1000+ строк',
+        'Картинки грузятся быстро, а вёрстка не «прыгает», пока страница загружается',
+        'Разметка для поисковиков, чтобы новости и турниры красиво выглядели в выдаче, и защита сайта от типовых атак'
       ],
       en: [
-        'Moved requests to SSR with Nuxt 3 utilities — 35% lower TTFB',
-        'Tracked a memory leak with fuite.js: payload from 3000 KB down to 200 KB (−93%)',
-        'Full redesign: a UI kit built from scratch, 40+ pages and 20 widgets reworked',
-        'Extracted the tournament bracket into the @bigplay/vue-tree-view npm package (Vue 2 & 3), removing 1000+ lines from the core',
-        'LCP and CLS work: WebP/AVIF, lazy loading, critical CSS, fixed block dimensions',
-        'JSON-LD (Article, NewsArticle, Organization, ImageObject) plus HSTS, CSP and X-Frame-Options headers'
+        'Pages start loading 35% faster: data is prepared on the server in advance',
+        'Found and fixed a memory leak — pages now weigh 15 times less (3 MB → 200 KB)',
+        'Full redesign: a single design system built from scratch, 40+ pages and 20 widgets',
+        'Moved the tournament bracket into a standalone library: other projects can reuse it, and the main codebase lost 1000+ lines',
+        'Images load fast, and the layout no longer jumps around while a page loads',
+        'Search markup so news and tournaments look good in results, plus protection against common attacks'
       ]
     },
     stack: ['Nuxt 3', 'Vue 3', 'Vue 2', 'TypeScript', 'Pinia', 'SSR', 'SCSS'],
@@ -105,15 +105,15 @@ export const projects: Project[] = [
     contribution: {
       ru: [
         'Свёрстаны и подключены разделы каталога магазинов, афиши и акций',
-        'Переключение городов с сохранением состояния и SSR-выдачей',
-        'Фильтры и поиск с дебаунсом и синхронизацией с query-параметрами',
-        'Адаптив от 320px, оптимизация изображений и Core Web Vitals'
+        'Переключение между городами без потери выбранных фильтров — и каждая страница видна поисковикам',
+        'Быстрые фильтры и поиск; ссылкой с выбранными фильтрами можно поделиться',
+        'Удобно на любом телефоне, быстрая загрузка картинок и страниц'
       ],
       en: [
         'Built and wired up the store catalogue, cinema listings and promotions sections',
-        'City switching that keeps state and still renders on the server',
-        'Debounced filters and search synced with query parameters',
-        'Responsive from 320px, image optimisation and Core Web Vitals work'
+        'Switching cities without losing the chosen filters — with every page still visible to search engines',
+        'Fast filters and search; a link with the chosen filters can be shared',
+        'Works on any phone, with fast-loading images and pages'
       ]
     },
     stack: ['Vue 3', 'Nuxt', 'TypeScript', 'Pinia', 'SSR', 'SCSS'],
@@ -148,13 +148,13 @@ export const projects: Project[] = [
         'Каталог, карточка товара, корзина и избранное',
         'Многошаговый чекаут с рассрочкой и валидацией форм',
         'Кабинет продавца: заявки, товары, статусы модерации',
-        'Кеширование запросов и скелетоны вместо спиннеров'
+        'Повторно открытые страницы появляются мгновенно, а вместо крутящихся загрузок — аккуратные заглушки контента'
       ],
       en: [
         'Catalogue, product page, cart and wishlist',
         'Multi-step checkout with instalments and form validation',
         'Seller dashboard: applications, products, moderation states',
-        'Request caching and skeletons instead of spinners'
+        'Revisited pages appear instantly, and neat content placeholders replace loading spinners'
       ]
     },
     stack: ['React', 'Next.js', 'TypeScript', 'SCSS', 'REST API'],
@@ -187,15 +187,15 @@ export const projects: Project[] = [
     contribution: {
       ru: [
         'Продуктовые страницы платформ с анимацией по скроллу',
-        'Секции цифр и кейсов со счётчиками на GSAP ScrollTrigger',
+        'Блоки с цифрами и кейсами, которые оживают при прокрутке',
         'Формы заявки с валидацией и защитой от спама',
-        'Мультиязычность и SEO-разметка'
+        'Несколько языков и настройка для поисковиков'
       ],
       en: [
         'Product pages for each platform with scroll-driven motion',
-        'Stats and case sections with counters powered by GSAP ScrollTrigger',
+        'Stats and case sections that come alive as you scroll',
         'Enquiry forms with validation and spam protection',
-        'Multi-language support and SEO markup'
+        'Several languages and search engine setup'
       ]
     },
     stack: ['Nuxt 3', 'TypeScript', 'SCSS', 'i18n'],
@@ -229,13 +229,13 @@ export const projects: Project[] = [
       ru: [
         'Каталог продукции с фильтрами по типу работ и поверхности',
         'Подбор цвета и калькулятор расхода краски',
-        'Разделы новостей и советов с CMS-контентом',
+        'Новости и советы, которые команда клиента публикует сама через админку',
         'Две языковые версии (RU / KZ) и адаптив'
       ],
       en: [
         'Product catalogue with filters by job type and surface',
         'Colour matching and a paint coverage calculator',
-        'News and advice sections driven by CMS content',
+        'News and advice the client’s team publishes on its own through an admin panel',
         'Two language versions (RU / KZ) and responsive layout'
       ]
     },
@@ -271,13 +271,13 @@ export const projects: Project[] = [
         'Калькулятор займа с расчётом графика платежей',
         'Страницы кредитных продуктов и исламского финансирования',
         'Карта отделений с поиском по городу и фильтрами',
-        'Доступность (a11y), контраст и работа с клавиатуры'
+        'Удобно для всех: читаемый контраст и полное управление с клавиатуры'
       ],
       en: [
         'Loan calculator with a payment schedule',
         'Pages for credit products and Islamic financing',
         'Branch map with city search and filters',
-        'Accessibility, contrast and full keyboard support'
+        'Usable by everyone: readable contrast and full keyboard control'
       ]
     },
     stack: ['React', 'Next.js', 'TypeScript', 'SCSS', 'Maps'],
@@ -300,25 +300,25 @@ export const projects: Project[] = [
     description: {
       ru: [
         '109 — единая служба спасения Алматы. Система ведёт обращение от входящего звонка до оценки заявителем: оператор первой линии принимает вызов и заполняет карточку, вторая линия назначает экипаж, исполнитель отчитывается прямо с места события.',
-        'Шесть ролей со своими рабочими местами, семь статусов заявки, меняющихся строго по порядку, и отчёты для акимата. Фронтенд собран по Feature-Sliced Design — иначе роли и статусы быстро расползлись бы по общему коду.'
+        'Шесть ролей со своими рабочими местами, семь статусов заявки, меняющихся строго по порядку, и отчёты для акимата. Архитектуру я выстроил так, чтобы роли и статусы не путались между собой: систему проще развивать и сложнее сломать.'
       ],
       en: [
         '109 is the unified emergency service of Almaty. The system carries an incident from the incoming call to the caller’s rating: a first-line operator answers and fills in the card, the second line dispatches a crew, the field responder reports straight from the scene.',
-        'Six roles with their own workspaces, seven incident states that may only move in one direction, and reports for the city administration. The frontend follows Feature-Sliced Design — otherwise roles and states would leak across shared code.'
+        'Six roles with their own workspaces, seven incident states that may only move in one direction, and reports for the city administration. I structured the code so roles and states never get tangled: the system is easier to grow and harder to break.'
       ]
     },
     contribution: {
       ru: [
-        'Рабочее место оператора 1-й линии: очередь входящих звонков, поп-ап вызова с ответом по Enter, карточка обращения с автосохранением каждые 30 секунд',
-        'Интеграция с Asterisk: номер звонящего и запись разговора подтягиваются в карточку автоматически',
+        'Рабочее место оператора 1-й линии: очередь входящих звонков, окно вызова с ответом одной клавишей, карточка обращения с автосохранением каждые 30 секунд',
+        'Связка с телефонией (Asterisk): номер звонящего и запись разговора попадают в карточку автоматически',
         'Маршрут статусов от «Зарегистрировано» до «На оценке пользователя» с ролевым доступом к переходам',
         'Назначение нескольких экипажей с техникой из справочника с поиском по госномеру и промежуточные рапорты по каждому',
         'Конструктор детального и итогового отчётов с фильтрами и выгрузкой в Excel',
         'Адаптивная версия для исполнителя: рапорт заполняется с телефона прямо с места события'
       ],
       en: [
-        'The first-line operator workspace: an incoming call queue, a call pop-up answerable with Enter, and an incident card that autosaves every 30 seconds',
-        'Asterisk integration: the caller number and the call recording land in the card automatically',
+        'The first-line operator workspace: an incoming call queue, a call window answered with a single key, and an incident card that autosaves every 30 seconds',
+        'Telephony integration (Asterisk): the caller number and the call recording land in the card automatically',
         'The state route from “Registered” to “Awaiting caller rating”, with role-based access to each transition',
         'Dispatching several crews with vehicles from a directory searchable by plate number, each filing its own interim report',
         'A builder for detailed and summary reports with filters and Excel export',
@@ -355,14 +355,14 @@ export const projects: Project[] = [
     contribution: {
       ru: [
         'Экраны документооборота: входящие, исходящие, статусы подписания',
-        'Подписание документов ЭЦП и работа с сертификатами',
-        'Оффлайн-кеш списков и оптимистичные обновления',
+        'Подписание документов электронной подписью (ЭЦП) прямо в приложении',
+        'Документы видны даже без интернета, а действия применяются мгновенно, не дожидаясь сервера',
         'Пуш-уведомления о дедлайнах налогового календаря'
       ],
       en: [
         'Document flow screens: inbox, outbox, signing states',
-        'Signing documents with digital certificates',
-        'Offline list caching and optimistic updates',
+        'Signing documents with a digital signature right in the app',
+        'Documents stay visible offline, and actions apply instantly without waiting for the server',
         'Push notifications for tax calendar deadlines'
       ]
     },
@@ -395,16 +395,16 @@ export const projects: Project[] = [
     },
     contribution: {
       ru: [
-        'Карты угодий с геолокацией, маршрутами и оффлайн-тайлами',
+        'Карты угодий с геолокацией и маршрутами — работают даже без связи',
         'Покупка и оплата путёвок, история и статусы',
-        'Цифровой сейф документов с локальным шифрованным хранилищем',
-        'Дизайн-система приложения и анимации переходов'
+        'Цифровой сейф: документы хранятся на телефоне в зашифрованном виде',
+        'Единый стиль приложения и плавные анимации переходов'
       ],
       en: [
-        'Ground maps with geolocation, routes and offline tiles',
+        'Ground maps with geolocation and routes — they work even with no signal',
         'Permit purchase and payment, history and states',
-        'Digital document safe backed by encrypted local storage',
-        "The app's design system and transition animations"
+        'A digital safe: documents are stored encrypted on the phone',
+        "The app's consistent style and smooth transition animations"
       ]
     },
     stack: ['Ionic', 'TypeScript', 'Capacitor', 'iOS / Android'],
