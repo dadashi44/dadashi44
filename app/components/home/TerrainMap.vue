@@ -132,7 +132,9 @@ void main() {
   float elev = heightAt(uv);
 
   // a 100 m contour interval, every fifth one an index line
-  float bands = elev / 100.0;
+  // the contour levels rise 6 m a second, so the lines slowly climb from the
+  // valleys to the peaks and tighten around them — one full interval every ~17 s
+  float bands = (elev - u_time * 6.0) / 100.0;
   float w = fwidth(bands);
   float f = fract(bands);
   float d = min(f, 1.0 - f);
