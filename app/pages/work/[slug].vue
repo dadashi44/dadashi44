@@ -17,9 +17,14 @@ const next = computed(() => projects.value[(index.value + 1) % projects.value.le
 useSiteSeo({
   title: () => `${project.value!.name} — ${project.value!.client}`,
   description: () => project.value!.summary,
-  // dedicated 1200x630 JPEG card — crawlers handle WebP inconsistently
-  image: () => `/works/og/${project.value!.slug}.jpg`,
-  type: 'article'
+  type: 'article',
+  // the card carries the case's own palette
+  card: {
+    title: project.value!.name,
+    eyebrow: `${t('work.caseStudy')} · ${project.value!.year}`,
+    accent: project.value!.palette.to,
+    glow: project.value!.palette.from
+  }
 })
 
 const site = useSiteUrl()

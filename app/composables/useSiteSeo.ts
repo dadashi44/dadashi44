@@ -16,21 +16,31 @@ export const useAbsoluteUrl = (path: string) => `${useSiteUrl()}${path.startsWit
 /**
  * Canonical + Open Graph + Twitter for a page.
  * Locale alternates are handled separately by useLocaleHead() in app.vue.
+ *
+ * The share image is a card rendered by Takumi from components/OgImage —
+ * nuxt-og-image sets og:image, its size and twitter:image itself.
  */
 export const useSiteSeo = (options: {
   title: MaybeRefOrGetter<string>
   description: MaybeRefOrGetter<string>
-  image?: MaybeRefOrGetter<string | undefined>
   type?: 'website' | 'article' | 'profile'
+  /** extras for the share card: a small label and the case's own colours */
+  card?: {title?: string; description?: string; eyebrow?: string; accent?: string; glow?: string}
 }) => {
   const route = useRoute()
-  const {locale} = useI18n()
+  const {locale, t} = useI18n()
   const site = useSiteUrl()
 
   const canonical = computed(() => `${site}${route.path === '/' ? '' : route.path}` || site)
-  const image = computed(() => {
-    const value = toValue(options.image)
-    return value ? `${site}${value}` : `${site}/og-image.png`
+
+  // crawlers read the server render only, so the values at setup are the ones that count
+  defineOgImage('Site.takumi', {
+    title: options.card?.title ?? toValue(options.title),
+    description: options.card?.description ?? toValue(options.description),
+    eyebrow: options.card?.eyebrow ?? '',
+    footer: t('common.ogFooter'),
+    ...(options.card?.accent && {accent: options.card.accent}),
+    ...(options.card?.glow && {glow: options.card.glow})
   })
 
   useHead({
@@ -44,16 +54,12 @@ export const useSiteSeo = (options: {
     ogTitle: () => toValue(options.title),
     ogDescription: () => toValue(options.description),
     ogUrl: () => canonical.value,
-    ogImage: () => image.value,
-    ogImageWidth: 1200,
-    ogImageHeight: 630,
     ogImageAlt: () => toValue(options.title),
     ogSiteName: 'Dauren Abasov — dadashi',
     ogLocale: () => (locale.value === 'en' ? 'en_US' : 'ru_RU'),
     twitterCard: 'summary_large_image',
     twitterTitle: () => toValue(options.title),
-    twitterDescription: () => toValue(options.description),
-    twitterImage: () => image.value
+    twitterDescription: () => toValue(options.description)
   })
 }
 

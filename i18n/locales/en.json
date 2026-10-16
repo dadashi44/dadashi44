@@ -22,7 +22,8 @@
     "rights": "© {year} Dauren Abasov",
     "location": "Almaty, KZ — {time}",
     "downloadCv": "Download CV",
-    "cv": "CV"
+    "cv": "CV",
+    "ogFooter": "Dauren Abasov · Frontend developer"
   },
   "theme": {
     "dark": "dark",

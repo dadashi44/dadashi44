@@ -4,7 +4,8 @@ const resumeHref = useResumeHref()
 
 useSiteSeo({
   title: () => t('contact.seoTitle'),
-  description: () => t('contact.seoDescription')
+  description: () => t('contact.seoDescription'),
+  card: {title: t('contact.title'), description: t('contact.subtitle'), eyebrow: t('contact.eyebrow')}
 })
 
 const form = reactive({name: '', email: '', budget: '', message: '', company: ''})
