@@ -8,9 +8,24 @@
  * shader, so the home page doesn't pay for the 3D chunk. Colours come from the
  * theme tokens, so it follows the light/dark switch.
  */
-const canvas = ref<HTMLCanvasElement | null>(null)
-const failed = ref(false)
+const {t} = useI18n()
 const {theme} = useTheme()
+
+const canvas = ref<HTMLCanvasElement | null>(null)
+const readout = ref<HTMLElement | null>(null)
+const failed = ref(false)
+
+/** Almaty sits under the marker; the cursor readout is relative to it */
+const ORIGIN = {lat: 43.2389, lon: 76.8897}
+const MARKER = {x: 0.64, y: 0.38}
+const SPAN = {lat: 0.12, lon: 0.2}
+
+const coords = (x: number, y: number) => ({
+  lat: ORIGIN.lat + (MARKER.y - y) * SPAN.lat,
+  lon: ORIGIN.lon + (x - MARKER.x) * SPAN.lon
+})
+const fmt = (value: number, pos: string, neg: string) => `${Math.abs(value).toFixed(4)}°${value >= 0 ? pos : neg}`
+const originLabel = `${fmt(ORIGIN.lat, 'N', 'S')} ${fmt(ORIGIN.lon, 'E', 'W')}`
 
 const VERTEX = `#version 300 es
 in vec2 a_pos;
@@ -60,11 +75,8 @@ float fbm(vec2 p) {
   return v;
 }
 
-void main() {
-  vec2 frag = gl_FragCoord.xy;
-  vec2 p = (frag - 0.5 * u_res) / u_res.y;
-  vec2 m = (u_mouse - 0.5) * vec2(u_res.x / u_res.y, 1.0);
-
+// terrain height at a point; m is the cursor in the same space
+float height(vec2 p, vec2 m) {
   float t = u_time * 0.035;
   vec2 q = p * 1.35 + vec2(0.0, u_scroll * 0.6);
 
@@ -73,7 +85,15 @@ void main() {
   float hill = exp(-md * md * 7.0) * u_hover;
 
   vec2 warp = vec2(fbm(q + vec2(0.0, t)), fbm(q + vec2(5.2, 1.3) - t));
-  float h = fbm(q + 1.8 * warp + vec2(t * 0.6, -t * 0.4)) + hill * 0.22;
+  return fbm(q + 1.8 * warp + vec2(t * 0.6, -t * 0.4)) + hill * 0.22;
+}
+
+void main() {
+  vec2 frag = gl_FragCoord.xy;
+  vec2 p = (frag - 0.5 * u_res) / u_res.y;
+  vec2 m = (u_mouse - 0.5) * vec2(u_res.x / u_res.y, 1.0);
+  float md = length(p - m);
+  float h = height(p, m);
 
   float bands = h * 16.0;
   float w = fwidth(bands);
@@ -99,6 +119,13 @@ void main() {
 
   col += (hash(frag + fract(u_time)) - 0.5) * 0.025;
   outColor = vec4(col, 1.0);
+
+  // The bottom-left pixel doubles as a probe: it stores the height under the
+  // cursor (16-bit, in R and G) so the readout shows the real terrain.
+  if (frag.x < 1.0 && frag.y < 1.0) {
+    float v = clamp(height(m, m) / 1.5, 0.0, 1.0) * 255.0;
+    outColor = vec4(floor(v) / 255.0, fract(v), 0.0, 1.0);
+  }
 }`
 
 let stop: (() => void) | null = null
@@ -204,6 +231,24 @@ function setup(surface: HTMLCanvasElement) {
   let visible = true
   let frame = 0
 
+  // probe pixel → metres; the city floor is ~700 m, the ridges ~3300 m
+  const probe = new Uint8Array(4)
+  const elevation = () => {
+    gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, probe)
+    const h = ((probe[0]! + probe[1]! / 255) / 255) * 1.5
+    return Math.round(700 + h * 2600)
+  }
+
+  // written straight into the DOM: a reactive ref here would re-render 60×/s
+  const updateReadout = () => {
+    const el = readout.value
+    if (!el) return
+    el.style.opacity = String(mouse.hover)
+    if (mouse.hover < 0.05) return
+    const {lat, lon} = coords(mouse.x, 1 - mouse.y)
+    el.textContent = `${fmt(lat, 'N', 'S')}  ${fmt(lon, 'E', 'W')}  ·  ${elevation()} ${t('home.map.metres')}`
+  }
+
   const draw = (now: number) => {
     const time = reduced ? 40 : (now - start) / 1000
     mouse.x += (mouse.tx - mouse.x) * 0.06
@@ -220,8 +265,11 @@ function setup(surface: HTMLCanvasElement) {
     gl.drawArrays(gl.TRIANGLES, 0, 3)
   }
 
+  let tick = 0
   const loop = (now: number) => {
     draw(now)
+    // a sync readPixels every frame would stall the GPU; ~15 Hz is plenty
+    if (++tick % 4 === 0) updateReadout()
     frame = requestAnimationFrame(loop)
   }
 
@@ -268,7 +316,78 @@ function setup(surface: HTMLCanvasElement) {
 </script>
 
 <template>
-  <div class="relative h-full w-full bg-surface-alt">
+  <div class="relative h-full w-full overflow-hidden bg-surface-alt">
     <canvas v-show="!failed" ref="canvas" class="block h-full w-full" aria-hidden="true" />
+
+    <!-- survey-sheet overlay: decorative, so hidden from assistive tech -->
+    <div
+      class="pointer-events-none absolute inset-0 font-display text-[11px] uppercase tracking-[0.25em] text-ink-faint lg:text-xs"
+      aria-hidden="true"
+    >
+      <span class="hud-corner left-4 top-4 border-l border-t lg:left-8 lg:top-8" />
+      <span class="hud-corner right-4 top-4 border-r border-t lg:right-8 lg:top-8" />
+      <span class="hud-corner bottom-4 left-4 border-b border-l lg:bottom-8 lg:left-8" />
+      <span class="hud-corner bottom-4 right-4 border-b border-r lg:bottom-8 lg:right-8" />
+
+      <div class="absolute left-8 top-8 lg:left-14 lg:top-14">
+        <p class="text-ink-soft">{{ t('home.map.sheet') }}</p>
+        <p class="mt-1">{{ t('home.map.place') }}</p>
+      </div>
+
+      <p class="absolute right-8 top-8 text-right lg:right-14 lg:top-14">{{ originLabel }}</p>
+
+      <!-- marker over Almaty -->
+      <div class="absolute" :style="{left: `${MARKER.x * 100}%`, top: `${MARKER.y * 100}%`}">
+        <span class="absolute -left-1 -top-1 block h-2 w-2 rounded-full bg-accent" />
+        <span class="hud-pulse absolute -left-1 -top-1 block h-2 w-2 rounded-full bg-accent" />
+        <span class="absolute left-4 top-0 h-px w-10 bg-ink/30" />
+        <span class="absolute left-16 -top-[0.6em] whitespace-nowrap text-ink">{{ t('home.map.marker') }}</span>
+      </div>
+
+      <div class="absolute bottom-8 left-8 lg:bottom-14 lg:left-14">
+        <div class="flex h-2 w-28 border-x border-b border-ink/40 lg:w-36">
+          <span class="w-1/2 border-r border-ink/40" />
+        </div>
+        <p class="mt-2">0 — 5 {{ t('home.map.km') }}</p>
+      </div>
+
+      <p class="absolute bottom-8 right-8 hidden text-right lg:bottom-14 lg:right-14 lg:block">
+        <span class="hud-hint">{{ t('home.map.hint') }}</span>
+      </p>
+      <p
+        ref="readout"
+        class="absolute bottom-8 right-8 whitespace-pre bg-surface-alt/80 px-2 py-1 text-right tabular-nums text-ink opacity-0 lg:bottom-14 lg:right-14"
+      />
+    </div>
   </div>
 </template>
+
+<style scoped>
+.hud-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: rgb(var(--c-ink) / 0.35);
+}
+
+.hud-pulse {
+  animation: hud-pulse 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes hud-pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(6);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hud-pulse {
+    animation: none;
+  }
+}
+</style>

@@ -61,7 +61,15 @@
     "ctaTitle": "Let's work together",
     "ctaText": "Open to freelance, product teams and interesting experiments with motion.",
     "footerCta": "Got an idea? Let's build it together.",
-    "startProject": "Start a project"
+    "startProject": "Start a project",
+    "map": {
+      "sheet": "Sheet 01 — Terrain",
+      "place": "Almaty, Kazakhstan",
+      "marker": "Based here",
+      "hint": "Move your cursor over the map",
+      "metres": "m",
+      "km": "km"
+    }
   },
   "services": {
     "design": {
