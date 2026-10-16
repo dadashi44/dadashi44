@@ -18,5 +18,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       capture_pageview: 'history_change',
       person_profiles: 'identified_only'
     })
+
+    setAnalytics(posthog)
   })
 })
