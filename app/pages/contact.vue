@@ -65,7 +65,7 @@ const heroMeta = computed(() => [
 ])
 
 const fieldClass =
-  'w-full border-b border-line/25 bg-transparent py-4 text-lg outline-none transition-colors duration-300 placeholder:text-ink-faint focus:border-accent'
+  'w-full border-b border-line/50 bg-transparent py-4 text-lg outline-none transition-colors duration-300 placeholder:text-ink-faint focus:border-accent'
 </script>
 
 <template>

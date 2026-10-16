@@ -20,7 +20,8 @@ export default <Partial<Config>>{
           alt: 'rgb(var(--c-surface-alt) / <alpha-value>)'
         },
         line: 'rgb(var(--c-line) / <alpha-value>)',
-        accent: 'rgb(var(--c-accent) / <alpha-value>)'
+        accent: 'rgb(var(--c-accent) / <alpha-value>)',
+        'on-accent': 'rgb(var(--c-on-accent) / <alpha-value>)'
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
