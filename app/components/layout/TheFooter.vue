@@ -26,7 +26,7 @@ const social = [
           <p class="max-w-md font-display text-title uppercase leading-[0.95]">{{ t('home.footerCta') }}</p>
           <div class="mt-8 flex flex-wrap gap-4">
             <ArrowLink :to="localePath('/contact')" :label="t('home.startProject')" size="lg" />
-            <ArrowLink href="/Abasov_Dauren_Resume.pdf" :label="t('common.cv')" size="lg" />
+            <ArrowLink href="/resume.pdf" :label="t('common.cv')" size="lg" />
           </div>
         </div>
 
