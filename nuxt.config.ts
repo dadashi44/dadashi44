@@ -34,6 +34,11 @@ export default defineNuxtConfig({
     // set via NUXT_TELEGRAM_BOT_TOKEN / NUXT_TELEGRAM_CHAT_ID — never commit real values
     telegramBotToken: '',
     telegramChatId: '',
+    // channels whose pinned PDFs are served as /resume.pdf and /resume-en.pdf
+    // (NUXT_TELEGRAM_RESUME_CHAT_ID / NUXT_TELEGRAM_RESUME_EN_CHAT_ID). Private chats
+    // don't expose pins to bots, so these have to be channels or groups.
+    telegramResumeChatId: '',
+    telegramResumeEnChatId: '',
     public: {
       // absolute origin used for canonical, og:url, hreflang and the sitemap
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://dadashi44.vercel.app',
