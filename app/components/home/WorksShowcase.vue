@@ -63,12 +63,15 @@ onMounted(() => {
         :to="localePath(`/work/${project.slug}`)"
         class="group relative block shrink-0 overflow-hidden rounded-xl lg:w-[34rem]"
       >
-        <div class="relative aspect-[4/3] w-full overflow-hidden lg:aspect-auto lg:h-full">
+        <div class="relative aspect-[4/5] w-full overflow-hidden sm:aspect-[4/3] lg:aspect-auto lg:h-full">
           <div class="absolute inset-0 transition-transform duration-[900ms] ease-expo group-hover:scale-105">
             <ProjectVisual :project="project" />
           </div>
 
-          <div class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
+          <!-- the scrim keeps the label readable wherever the screenshot ends -->
+          <div
+            class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-black/75 via-black/35 to-transparent p-6 pt-20"
+          >
             <div data-showcase-label>
               <span class="font-display text-xs uppercase tracking-[0.25em] text-white/70">
                 {{ String(i + 1).padStart(2, '0') }} —

@@ -20,7 +20,7 @@ const {t} = useI18n()
       </div>
     </div>
 
-    <div class="mt-14 h-[52vh] border-y border-line/15 lg:mt-20 lg:h-[70vh]">
+    <div class="mt-14 h-[66vh] max-h-[40rem] border-y border-line/15 sm:h-[52vh] lg:mt-20 lg:h-[70vh] lg:max-h-none">
       <ClientOnly>
         <TerrainMap />
         <template #fallback>

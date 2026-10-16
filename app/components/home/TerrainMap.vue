@@ -27,6 +27,8 @@ const KM_PER_DEG = 111.32
 const CENTER = {lat: 43.17, lon: 76.95}
 const LAT_SPAN = 0.3
 const MAX_LON_SPAN = 1.25
+/** portrait screens zoom in on the city, Kok-Tobe and the Medeu gorge */
+const NARROW = {lat: 43.165, lon: 76.975, latSpan: 0.24}
 
 interface Place {
   key: string
@@ -50,13 +52,15 @@ const PLACES: Place[] = [
 const view = reactive({lon0: 0, lat1: 0, lonSpan: 1, latSpan: LAT_SPAN})
 
 const fitView = (width: number, height: number) => {
-  let latSpan = LAT_SPAN
+  const narrow = width < height
+  const center = narrow ? NARROW : CENTER
+  let latSpan = narrow ? NARROW.latSpan : LAT_SPAN
   let lonSpan = ((width / height) * latSpan) / COS_LAT
   if (lonSpan > MAX_LON_SPAN) {
     lonSpan = MAX_LON_SPAN
     latSpan = (lonSpan * COS_LAT * height) / width
   }
-  Object.assign(view, {lon0: CENTER.lon - lonSpan / 2, lat1: CENTER.lat + latSpan / 2, lonSpan, latSpan})
+  Object.assign(view, {lon0: center.lon - lonSpan / 2, lat1: center.lat + latSpan / 2, lonSpan, latSpan})
 }
 
 const project = (lat: number, lon: number) => ({
@@ -67,9 +71,10 @@ const project = (lat: number, lon: number) => ({
 const numberFmt = computed(() => new Intl.NumberFormat(locale.value === 'en' ? 'en-GB' : 'ru-RU'))
 
 const places = computed(() =>
-  PLACES.map((place) => ({...place, ...project(place.lat, place.lon)})).filter(
-    (p) => p.x > 0.04 && p.x < 0.9 && p.y > 0.12 && p.y < 0.9
-  )
+  PLACES.map((place) => ({...place, ...project(place.lat, place.lon)}))
+    .filter((p) => p.x > 0.03 && p.x < 0.97 && p.y > 0.1 && p.y < 0.92)
+    // labels on the right half grow leftwards, so none runs off the edge
+    .map((p) => ({...p, flip: p.x > 0.6}))
 )
 
 /** a 10 km bar, as a share of the map width */
@@ -132,7 +137,9 @@ void main() {
   float elev = heightAt(uv);
 
   // a 100 m contour interval, every fifth one an index line
-  float bands = elev / 100.0;
+  // the contour levels rise 6 m a second, so the lines slowly climb from the
+  // valleys to the peaks and tighten around them — one full interval every ~17 s
+  float bands = (elev - u_time * 6.0) / 100.0;
   float w = fwidth(bands);
   float f = fract(bands);
   float d = min(f, 1.0 - f);
@@ -391,6 +398,18 @@ function setup(surface: HTMLCanvasElement, heights: Heights) {
   }
   const onLeave = () => (mouse.thover = 0)
 
+  // phones have no hover: a tap shows the glow and the readout for a moment
+  let tapTimer: ReturnType<typeof setTimeout> | undefined
+  const onTap = (e: PointerEvent) => {
+    if (e.pointerType === 'mouse') return
+    const rect = surface.getBoundingClientRect()
+    mouse.tx = mouse.x = (e.clientX - rect.left) / rect.width
+    mouse.ty = mouse.y = 1 - (e.clientY - rect.top) / rect.height
+    mouse.thover = 1
+    clearTimeout(tapTimer)
+    tapTimer = setTimeout(() => (mouse.thover = 0), 3000)
+  }
+
   const loop = (now: number) => {
     draw(now)
     if (++tick % 4 === 0) updateReadout()
@@ -416,6 +435,7 @@ function setup(surface: HTMLCanvasElement, heights: Heights) {
   ro.observe(surface)
 
   window.addEventListener('pointermove', onPointer, {passive: true})
+  surface.addEventListener('pointerdown', onTap)
   document.documentElement.addEventListener('pointerleave', onLeave)
   document.addEventListener('visibilitychange', sync)
 
@@ -428,6 +448,8 @@ function setup(surface: HTMLCanvasElement, heights: Heights) {
     io.disconnect()
     ro.disconnect()
     window.removeEventListener('pointermove', onPointer)
+    surface.removeEventListener('pointerdown', onTap)
+    clearTimeout(tapTimer)
     document.documentElement.removeEventListener('pointerleave', onLeave)
     document.removeEventListener('visibilitychange', sync)
     gl.deleteTexture(texture)
@@ -461,7 +483,8 @@ function setup(surface: HTMLCanvasElement, heights: Heights) {
       <span class="hud-corner bottom-4 left-4 border-b border-l lg:bottom-8 lg:left-8" />
       <span class="hud-corner bottom-4 right-4 border-b border-r lg:bottom-8 lg:right-8" />
 
-      <div class="absolute left-8 top-8 lg:left-14 lg:top-14">
+      <!-- the section heading already names the place on small screens -->
+      <div class="absolute left-8 top-8 hidden sm:block lg:left-14 lg:top-14">
         <p class="text-ink-soft">{{ t('home.map.sheet') }}</p>
         <p class="mt-1">{{ t('home.map.interval') }}</p>
       </div>
@@ -484,15 +507,21 @@ function setup(surface: HTMLCanvasElement, heights: Heights) {
         <template v-if="place.home">
           <span class="absolute -left-1 -top-1 block h-2 w-2 rounded-full bg-accent" />
           <span class="hud-pulse absolute -left-1 -top-1 block h-2 w-2 rounded-full bg-accent" />
-          <!-- the label sits to the left so it never covers Kok-Tobe next door -->
-          <span class="absolute right-4 top-0 h-px w-8 bg-ink/30" />
-          <span class="hud-label absolute right-14 -top-[0.6em] whitespace-nowrap text-ink">
+          <!-- above the dot, so it never covers Kok-Tobe right next door -->
+          <span class="absolute -top-6 left-0 h-4 w-px bg-ink/30" />
+          <span
+            class="hud-label absolute -top-[2.6em] whitespace-nowrap text-ink"
+            :class="place.flip ? 'right-0' : 'left-0'"
+          >
             {{ t(`home.map.places.${place.key}`) }} · {{ t('home.map.marker') }}
           </span>
         </template>
         <template v-else>
           <span class="absolute -left-[3px] -top-[3px] block h-1.5 w-1.5 rotate-45 border border-ink/60" />
-          <span class="hud-label absolute left-3 -top-[0.6em] whitespace-nowrap text-ink-soft">
+          <span
+            class="hud-label absolute -top-[0.6em] whitespace-nowrap text-ink-soft"
+            :class="place.flip ? 'right-3' : 'left-3'"
+          >
             <span class="text-ink">{{ t(`home.map.places.${place.key}`) }}</span>
             {{ numberFmt.format(place.elevation) }} {{ t('home.map.metres') }}
           </span>
@@ -504,7 +533,7 @@ function setup(surface: HTMLCanvasElement, heights: Heights) {
           <span class="w-1/2 border-r border-ink/40" />
         </div>
         <p class="mt-2">0 — 10 {{ t('home.map.km') }}</p>
-        <p class="mt-1 normal-case tracking-normal opacity-70">{{ t('home.map.credit') }}</p>
+        <p class="mt-1 hidden normal-case tracking-normal opacity-70 sm:block">{{ t('home.map.credit') }}</p>
       </div>
 
       <p class="absolute bottom-8 right-8 hidden text-right lg:bottom-14 lg:right-14 lg:block">
