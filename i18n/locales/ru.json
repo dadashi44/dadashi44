@@ -27,7 +27,7 @@
   "theme": {
     "dark": "тёмная",
     "light": "светлая",
-    "switch": "Переключить на {mode} тему"
+    "switch": "Переключить тему: {mode}"
   },
   "preloader": {
     "greetings": [
