@@ -61,7 +61,21 @@
     "ctaTitle": "Let's work together",
     "ctaText": "Open to freelance work and product teams. Tell me about the task — I'll come back with an approach, a timeline and a budget.",
     "footerCta": "Got an idea? Let's build it together.",
-    "startProject": "Start a project"
+    "startProject": "Start a project",
+    "map": {
+      "sheet": "Terrain — Trans-Ili Alatau",
+      "place": "Almaty, Kazakhstan",
+      "marker": "Based here",
+      "hint": "Move your cursor over the map",
+      "metres": "m",
+      "km": "km"
+    },
+    "location": {
+      "title": "Where I am",
+      "heading": "Almaty, Kazakhstan",
+      "text": "I work from Almaty with clients in Kazakhstan and Kyrgyzstan — remotely, in Russian or English. I reply within a day.",
+      "timeLabel": "Now in Almaty"
+    }
   },
   "services": {
     "design": {
