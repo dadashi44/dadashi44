@@ -27,6 +27,8 @@ const submit = async () => {
   try {
     await $fetch('/api/contact', {method: 'POST', body: {...form}})
     status.value = 'sent'
+    // no name, email or message — only what's safe to keep in analytics
+    track('contact_form_submitted', {budget: form.budget || null})
     Object.assign(form, {name: '', email: '', budget: '', message: '', company: ''})
   } catch (err: any) {
     const data = err?.data?.data
@@ -35,10 +37,12 @@ const submit = async () => {
       errors.value = Object.fromEntries(
         Object.keys(data.errors).map((field) => [field, t(`contact.errors.${field}`)])
       )
+      track('contact_form_failed', {reason: 'validation', fields: Object.keys(data.errors)})
       status.value = 'idle'
       return
     }
     status.value = 'error'
+    track('contact_form_failed', {reason: data?.reason ?? 'unknown'})
     errorText.value =
       data?.reason === 'missing-config' ? t('contact.errorNotConfigured') : t('contact.errorGeneric')
   }
