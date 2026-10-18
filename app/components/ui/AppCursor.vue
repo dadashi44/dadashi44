@@ -96,7 +96,7 @@ const ringClass = computed(() => {
         :class="ringClass"
       >
         <span
-          class="font-display text-xs uppercase tracking-[0.2em] text-white transition-opacity duration-300"
+          class="font-display text-xs uppercase tracking-[0.2em] text-on-accent transition-opacity duration-300"
           :class="state.label ? 'opacity-100' : 'opacity-0'"
         >
           {{ state.label }}

@@ -5,7 +5,8 @@
     "about": "Обо мне",
     "contact": "Контакты",
     "menu": "Меню",
-    "toggleMenu": "Открыть меню"
+    "toggleMenu": "Открыть меню",
+    "language": "Язык"
   },
   "common": {
     "menu": "Меню",

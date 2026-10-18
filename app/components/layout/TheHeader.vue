@@ -80,6 +80,7 @@ watch(
           v-cursor="'link'"
           type="button"
           class="flex h-9 w-9 flex-col items-center justify-center gap-[5px] rounded-full border border-line/25 md:hidden"
+          aria-controls="site-menu"
           :aria-expanded="menuOpen"
           :aria-label="t('nav.toggleMenu')"
           @click="menuOpen = !menuOpen"

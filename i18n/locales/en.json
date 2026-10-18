@@ -5,7 +5,8 @@
     "about": "About",
     "contact": "Contact",
     "menu": "Menu",
-    "toggleMenu": "Toggle menu"
+    "toggleMenu": "Toggle menu",
+    "language": "Language"
   },
   "common": {
     "menu": "Menu",
