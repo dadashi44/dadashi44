@@ -87,8 +87,7 @@
       "heading": "Almaty, Kazakhstan",
       "text": "I work from Almaty with clients in Kazakhstan and Kyrgyzstan — remotely, in Russian or English. I reply within a day.",
       "timeLabel": "Now in Almaty"
-    },
-    "openSourceTeaser": "My open-source libraries · {downloads} downloads a month"
+    }
   },
   "services": {
     "design": {
@@ -153,16 +152,7 @@
     "openSite": "Open website",
     "openLanding": "Open landing",
     "nextProject": "Next project",
-    "appScreen": "app screen",
-    "library": "Released as open source",
-    "libraryDownloads": "{count} downloads last month",
-    "openSource": {
-      "title": "Open source",
-      "heading": "Libraries",
-      "text": "When something I build for a project turns out useful beyond it, I ship it as its own package. Other developers use them — the numbers below come live from npm.",
-      "downloads": "downloads last month",
-      "fromCase": "{name} case"
-    }
+    "appScreen": "app screen"
   },
   "about": {
     "seoTitle": "About — Dauren Abasov",
