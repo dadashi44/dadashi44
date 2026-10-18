@@ -50,6 +50,8 @@ export default defineNuxtConfig({
     // don't expose pins to bots, so these have to be channels or groups.
     telegramResumeChatId: '',
     telegramResumeEnChatId: '',
+    // NUXT_TELEGRAM_WEBHOOK_SECRET: Telegram sends it with every webhook call to /api/telegram/webhook
+    telegramWebhookSecret: '',
     public: {
       // absolute origin used for canonical, og:url, hreflang and the sitemap
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://dadashi44.vercel.app',
