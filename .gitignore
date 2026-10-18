@@ -10,6 +10,11 @@ dist
 # Node dependencies
 node_modules
 
+# the project uses Bun only — bun.lock is the lockfile; stray ones from other managers stay out
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
 # Logs
 logs
 *.log

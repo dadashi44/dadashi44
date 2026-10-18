@@ -17,12 +17,14 @@
 
 ## Требования
 
-Nuxt 4.5 требует **Node ≥ 22** (в 20.x падает на `Set.prototype.difference`).
-Если локально стоит Node 20 — собирайте через Bun:
-
-```bash
-bun --bun run build
-```
+- **Только Bun.** Lock-файл — `bun.lock`, версия закреплена в `packageManager`.
+  `package-lock.json`, `yarn.lock` и `pnpm-lock.yaml` в `.gitignore` — не запускайте
+  `npm install`, иначе рядом появится второй lock-файл с другими версиями.
+- **Node ≥ 22.21.** Nuxt 4.6 и `nuxt-og-image` используют `module.findPackageJSON`,
+  которого нет в Node 20: там падает уже `bun install` (на `nuxt prepare` в postinstall).
+  Обхода через `bun --bun` больше нет — в Bun этой функции тоже нет.
+  Версия лежит в `.nvmrc`, так что достаточно `nvm use`. На Vercel — Settings → General →
+  Node.js Version: **22.x**.
 
 ## Команды
 
