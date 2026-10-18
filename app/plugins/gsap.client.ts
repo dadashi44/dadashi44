@@ -32,14 +32,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   // keep triggers honest after route changes and late font loading
   nuxtApp.hook('page:finish', () => {
     lenis.scrollTo(0, {immediate: true})
-    requestAnimationFrame(() => {
-      ScrollTrigger.refresh()
-      // a link like /work#open-source should land on that section, not the top
-      const {hash} = useRouter().currentRoute.value
-      const target = hash && document.getElementById(decodeURIComponent(hash.slice(1)))
-      // force: the preloader keeps lenis stopped on the first visit
-      if (target) lenis.scrollTo(target, {offset: -96, immediate: reduced, force: true})
-    })
+    requestAnimationFrame(() => ScrollTrigger.refresh())
   })
 
   if (document.fonts?.ready) {

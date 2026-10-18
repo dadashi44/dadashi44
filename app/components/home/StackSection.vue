@@ -6,17 +6,7 @@ const rows = [
   ['Jest', 'Vitest', 'FSD', 'Core Web Vitals', 'JSON-LD', 'GSAP', 'Git']
 ]
 
-const {t, locale} = useI18n()
-const localePath = useLocalePath()
-const {downloads} = useLibraries()
-
-// one line instead of a whole section: the libraries themselves live on /work
-const libraryDownloads = computed(() => {
-  const total = Object.values(downloads.value ?? {}).reduce<number>((sum, n) => sum + (n ?? 0), 0)
-  return total
-    ? new Intl.NumberFormat(locale.value === 'en' ? 'en-US' : 'ru-RU', {notation: 'compact', maximumFractionDigits: 1}).format(total)
-    : null
-})
+const {t} = useI18n()
 
 const stats = [
   {value: '4', label: t('stats.years')},
@@ -74,18 +64,6 @@ onMounted(() => {
         <p :data-counter="stat.value" class="font-display text-6xl leading-none lg:text-7xl">0</p>
         <p class="mt-3 text-sm text-ink-soft">{{ stat.label }}</p>
       </div>
-    </div>
-
-    <div v-if="libraryDownloads" class="container mt-12">
-      <NuxtLink
-        v-cursor="'link'"
-        :to="`${localePath('/work')}#open-source`"
-        class="group inline-flex items-center gap-3 text-sm text-ink-soft transition-colors duration-300 hover:text-ink"
-      >
-        <span class="h-1.5 w-1.5 rounded-full bg-accent" />
-        {{ t('home.openSourceTeaser', {downloads: libraryDownloads}) }}
-        <span class="transition-transform duration-500 ease-expo group-hover:translate-x-1">→</span>
-      </NuxtLink>
     </div>
   </section>
 </template>

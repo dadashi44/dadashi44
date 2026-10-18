@@ -104,8 +104,6 @@ watch([filter, view], async () => {
       </div>
     </div>
 
-    <OpenSourceSection />
-
     <ContactCta />
   </div>
 </template>
