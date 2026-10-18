@@ -1,8 +1,9 @@
 <script setup lang="ts">
 const route = useRoute()
-const {t} = useI18n()
+const {t, locale} = useI18n()
 const localePath = useLocalePath()
 const {list: projects} = useProjects()
+const {list: libraries, downloads} = useLibraries()
 
 const slug = computed(() => String(route.params.slug))
 const project = computed(() => projects.value.find((p) => p.slug === slug.value))
@@ -12,6 +13,8 @@ if (!project.value) {
 }
 
 const index = computed(() => projects.value.findIndex((p) => p.slug === slug.value))
+// packages that were extracted from this case
+const caseLibraries = computed(() => libraries.value.filter((library) => library.project === slug.value))
 const next = computed(() => projects.value[(index.value + 1) % projects.value.length]!)
 
 useSiteSeo({
@@ -126,6 +129,26 @@ onMounted(() => {
               {{ tech }}
             </li>
           </ul>
+        </div>
+
+        <div v-for="library in caseLibraries" :key="library.pkg">
+          <p class="mb-5 font-display text-xs uppercase tracking-[0.3em] text-ink-faint">{{ t('work.library') }}</p>
+          <a
+            v-cursor="'link'"
+            :href="library.npm"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group block rounded-xl border border-line/20 p-6 transition-colors duration-500 hover:border-accent"
+          >
+            <span class="font-display text-3xl uppercase leading-none">{{ library.name }}</span>
+            <span class="mt-3 block text-sm text-ink-soft">{{ library.tagline }}</span>
+            <span
+              v-if="typeof downloads[library.pkg] === 'number'"
+              class="mt-4 block text-[11px] uppercase tracking-wider text-accent"
+            >
+              {{ t('work.libraryDownloads', {count: downloads[library.pkg]!.toLocaleString(locale)}) }}
+            </span>
+          </a>
         </div>
       </aside>
     </section>
