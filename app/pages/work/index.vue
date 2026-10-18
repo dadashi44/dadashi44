@@ -4,7 +4,8 @@ const {list: projects} = useProjects()
 
 useSiteSeo({
   title: () => t('work.seoTitle'),
-  description: () => t('work.seoDescription')
+  description: () => t('work.seoDescription'),
+  card: {title: t('work.title'), description: t('work.subtitle'), eyebrow: t('work.eyebrow')}
 })
 
 // hoisted out of the template on purpose: an inline array literal hands PageHero

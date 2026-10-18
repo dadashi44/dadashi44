@@ -7,7 +7,18 @@ export default defineNuxtConfig({
     port: 5050
   },
 
-  modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', '@nuxt/fonts', '@nuxtjs/i18n'],
+  modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', '@nuxt/fonts', '@nuxtjs/i18n', 'nuxt-og-image'],
+
+  // nuxt-og-image builds absolute image URLs from this
+  site: {
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://dadashi44.vercel.app',
+    name: 'Dauren Abasov — dadashi'
+  },
+
+  ogImage: {
+    // cards are rendered on demand by Takumi and kept by the CDN for a week
+    defaults: {width: 1200, height: 630, cacheMaxAgeSeconds: 60 * 60 * 24 * 7}
+  },
 
   i18n: {
     baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://dadashi44.vercel.app',
@@ -50,8 +61,9 @@ export default defineNuxtConfig({
 
   fonts: {
     families: [
-      {name: 'Inter', provider: 'google', weights: [300, 400, 500, 600, 700]},
-      {name: 'Bebas Neue', provider: 'google', weights: [400]}
+      // global: the OG renderer reads fonts from here too; cyrillic for the Russian cards
+      {name: 'Inter', provider: 'google', weights: [300, 400, 500, 600, 700], subsets: ['latin', 'cyrillic'], global: true},
+      {name: 'Bebas Neue', provider: 'google', weights: [400], global: true}
     ]
   },
 

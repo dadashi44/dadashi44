@@ -6,7 +6,8 @@ const resumeHref = useResumeHref()
 useSiteSeo({
   title: () => t('about.seoTitle'),
   description: () => t('about.seoDescription'),
-  type: 'profile'
+  type: 'profile',
+  card: {title: t('about.title'), description: t('about.subtitle'), eyebrow: t('about.eyebrow')}
 })
 
 interface Job {year: string; title: string; role: string; place: string}

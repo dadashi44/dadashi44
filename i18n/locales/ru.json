@@ -22,7 +22,8 @@
     "rights": "© {year} Даурен Абасов",
     "location": "Алматы, KZ — {time}",
     "downloadCv": "Скачать CV",
-    "cv": "Резюме"
+    "cv": "Резюме",
+    "ogFooter": "Даурен Абасов · Frontend-разработчик"
   },
   "theme": {
     "dark": "тёмная",
