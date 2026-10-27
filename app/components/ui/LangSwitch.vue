@@ -52,6 +52,7 @@ const activeIndex = computed(() => Math.max(0, options.value.findIndex((o) => o.
         :hreflang="option.hreflang"
         :lang="option.hreflang"
         :aria-label="option.name"
+        @click="track('language_switched', {from: locale, to: option.code})"
         class="relative z-10 flex h-full items-center justify-center rounded-full text-ink-soft transition-colors duration-500 hover:text-ink"
         :class="full ? 'px-5' : 'px-3'"
       >
