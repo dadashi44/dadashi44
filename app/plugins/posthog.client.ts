@@ -1,5 +1,5 @@
 /**
- * Product analytics: pageviews, clicks (autocapture) and visitor geo.
+ * Product analytics: pageviews, clicks (autocapture), visitor geo and errors.
  *
  * Disabled until NUXT_PUBLIC_POSTHOG_KEY is set, and never runs in dev so
  * local clicking around doesn't pollute the numbers. The SDK is imported
@@ -12,6 +12,9 @@ export default defineNuxtPlugin((nuxtApp) => {
   const {posthogKey, posthogHost} = useRuntimeConfig().public
   if (import.meta.dev || !posthogKey) return
 
+  // Vue catches component errors itself, so they never reach window.onerror
+  nuxtApp.hook('vue:error', (error) => captureError(error))
+
   nuxtApp.hook('app:suspense:resolve', async () => {
     const {default: posthog} = await import('posthog-js')
 
@@ -20,6 +23,8 @@ export default defineNuxtPlugin((nuxtApp) => {
       // SPA route changes count as pageviews too
       capture_pageview: 'history_change',
       person_profiles: 'identified_only',
+      // error tracking: uncaught errors and unhandled promise rejections
+      capture_exceptions: true,
       // /en/about and /about are the same page: report the path without the
       // locale prefix and carry the language as a property on every event
       before_send: (event) => {
