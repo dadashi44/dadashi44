@@ -167,7 +167,7 @@ try/catch — если WebGL недоступен, останется тёмны
 
 `NUXT_PUBLIC_SITE_URL` — абсолютный origin деплоя. Он используется в canonical,
 `og:url`, `hreflang` и sitemap, поэтому его **обязательно** нужно выставить под
-реальный домен (по умолчанию стоит `https://dadashi44.vercel.app`).
+реальный домен (по умолчанию стоит `https://dadashi44.is-a.dev`).
 
 | Что | Где |
 | --- | --- |

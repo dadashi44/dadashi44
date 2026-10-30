@@ -11,7 +11,7 @@ export default defineNuxtConfig({
 
   // nuxt-og-image builds absolute image URLs from this
   site: {
-    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://dadashi44.vercel.app',
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://dadashi44.is-a.dev',
     name: 'Dauren Abasov — dadashi'
   },
 
@@ -21,7 +21,7 @@ export default defineNuxtConfig({
   },
 
   i18n: {
-    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://dadashi44.vercel.app',
+    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://dadashi44.is-a.dev',
     defaultLocale: 'ru',
     // RU lives at /, EN at /en/* — good for indexing both versions
     strategy: 'prefix_except_default',
@@ -54,7 +54,7 @@ export default defineNuxtConfig({
     telegramWebhookSecret: '',
     public: {
       // absolute origin used for canonical, og:url, hreflang and the sitemap
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://dadashi44.vercel.app',
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://dadashi44.is-a.dev',
       // set via NUXT_PUBLIC_POSTHOG_KEY / NUXT_PUBLIC_POSTHOG_HOST; analytics stay off without a key
       posthogKey: '',
       posthogHost: 'https://eu.i.posthog.com'
