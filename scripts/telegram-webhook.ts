@@ -1,7 +1,7 @@
 /**
  * Points @dadashi44_bot at the site and sets up its command menu.
  *
- *   bun scripts/telegram-webhook.ts                         # https://dadashi44.vercel.app
+ *   bun scripts/telegram-webhook.ts                         # https://dadashi44.is-a.dev
  *   bun scripts/telegram-webhook.ts https://my-domain.kz    # another deployment
  *   bun scripts/telegram-webhook.ts --info                  # show the current webhook
  *
@@ -33,7 +33,7 @@ if (arg === '--info') {
   console.log({url: info.url || '(none)', pending: info.pending_update_count, lastError: info.last_error_message})
 } else {
   if (!secret) throw new Error('NUXT_TELEGRAM_WEBHOOK_SECRET is missing in .env')
-  const origin = (arg ?? 'https://dadashi44.vercel.app').replace(/\/$/, '')
+  const origin = (arg ?? 'https://dadashi44.is-a.dev').replace(/\/$/, '')
 
   await api('setWebhook', {
     url: `${origin}/api/telegram/webhook`,

@@ -87,7 +87,7 @@ const latinTitle = /^[\x20-\x7E—–·]+$/.test(title)
         <div :style="{width: '12px', height: '12px', borderRadius: '9999px', background: accent}" />
         {{ footer }}
       </div>
-      <div style="letter-spacing: 2px">dadashi44.vercel.app</div>
+      <div style="letter-spacing: 2px">dadashi44.is-a.dev</div>
     </div>
   </div>
 </template>
