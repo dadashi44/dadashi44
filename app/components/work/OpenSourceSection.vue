@@ -45,7 +45,7 @@ useJsonLd(() => ({
       <article
         v-for="(library, i) in libraries"
         :key="library.pkg"
-        class="group flex flex-col gap-8 bg-surface p-8 transition-colors duration-500 hover:bg-surface-alt lg:p-10"
+        class="group flex flex-col gap-8 bg-surface p-8 transition-colors duration-500 hover:bg-surface-alt lg:p-10 lg:last:odd:col-span-2"
       >
         <div class="flex items-start justify-between gap-4">
           <span class="font-display text-xs tracking-[0.3em] text-accent">0{{ i + 1 }}</span>

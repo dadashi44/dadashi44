@@ -107,6 +107,39 @@ export const libraries: Library[] = [
       }
     ],
     project: 'bigplay'
+  },
+  {
+    pkg: 'vue-llm',
+    name: 'vue-llm',
+    tagline: {
+      ru: 'AI SDK для Vue и Nuxt: стриминговый чат, вызов инструментов и модели прямо в браузере',
+      en: 'The AI SDK for Vue and Nuxt: streaming chat, tool calling and in-browser models'
+    },
+    summary: {
+      ru: 'useChat() со стримингом, вызовом инструментов и несколькими провайдерами — в 10 строк. Один API для OpenAI, Anthropic, Gemini и Ollama, а через WebGPU модель можно запустить на устройстве пользователя — без сервера и API-ключа.',
+      en: 'useChat() with streaming, tool calling and multiple providers in 10 lines. One API for OpenAI, Anthropic, Gemini and Ollama, and with WebGPU the model can run on the user’s device — no server, no API key.'
+    },
+    highlights: {
+      ru: [
+        'Generative UI: вызовы инструментов рендерятся вашими Vue-компонентами, с потоковыми аргументами и подтверждением от человека',
+        'Модели Llama, Qwen и SmolLM на WebGPU — данные не покидают устройство',
+        'Вкладка LLM в Vue DevTools: таймлайн запросов, время до первого токена, вызовы инструментов и расход токенов',
+        'Ноль runtime-зависимостей — только vue в peer; композаблы работают и на Vue 2.7'
+      ],
+      en: [
+        'Generative UI: tool calls render as your own Vue components, with streamed arguments and human-in-the-loop',
+        'Llama, Qwen and SmolLM on WebGPU — nothing leaves the device',
+        'An LLM tab in Vue DevTools: request timeline, time to first token, tool calls and token usage',
+        'Zero runtime dependencies — only vue as a peer; the composables also run on Vue 2.7'
+      ]
+    },
+    stack: ['Vue 3', 'Vue 2.7', 'Nuxt module', 'TypeScript', 'SSE', 'WebGPU'],
+    npm: 'https://www.npmjs.com/package/vue-llm',
+    repo: 'https://github.com/dadashi44/vue-llm',
+    links: [
+      {label: {ru: 'Документация', en: 'Docs'}, href: 'https://vue-llm.js.org/'},
+      {label: {ru: 'Песочница', en: 'Playground'}, href: 'https://vue-llm.js.org/playground'}
+    ]
   }
 ]
 
