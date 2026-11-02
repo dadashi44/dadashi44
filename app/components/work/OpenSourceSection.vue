@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import {NuxtLink} from '#components'
+
 const {t, locale} = useI18n()
 const localePath = useLocalePath()
 const {list: libraries, downloads} = useLibraries()
@@ -93,13 +95,19 @@ useJsonLd(() => ({
           </p>
           <ul>
             <li v-for="article in byIds(library.articles)" :key="article.id">
-              <a
+              <component
+                :is="article.to ? NuxtLink : 'a'"
                 v-cursor="'link'"
-                :href="article.url"
-                target="_blank"
-                rel="noopener"
+                v-bind="article.to ? {to: article.to} : {href: article.url, target: '_blank', rel: 'noopener'}"
                 class="group/article flex items-start gap-4 border-b border-line/15 py-3"
-                @click="track('blog_article_clicked', {article_id: article.id, placement: 'library', library: library.pkg})"
+                @click="
+                  track('blog_article_clicked', {
+                    article_id: article.id,
+                    placement: 'library',
+                    library: library.pkg,
+                    destination: article.to ? 'translation' : 'habr'
+                  })
+                "
               >
                 <span class="text-sm leading-snug transition-colors duration-300 group-hover/article:text-accent">
                   {{ article.title }}
@@ -112,7 +120,7 @@ useJsonLd(() => ({
                 >
                   <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" />
                 </svg>
-              </a>
+              </component>
             </li>
           </ul>
         </div>

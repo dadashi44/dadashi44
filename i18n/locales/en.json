@@ -163,7 +163,7 @@
       "text": "When something I build for a project turns out useful beyond it, I ship it as its own package. Other developers use them — the numbers below come live from npm.",
       "downloads": "downloads last month",
       "fromCase": "{name} case",
-      "articles": "On Habr"
+      "articles": "On the blog"
     }
   },
   "about": {
@@ -238,20 +238,29 @@
     ]
   },
   "blog": {
-    "seoTitle": "Blog — Dauren Abasov's articles on Habr",
+    "seoTitle": "Blog — articles by Dauren Abasov",
     "seoDescription": "Articles on Vue, Nuxt, performance and open source: how my libraries work and what broke along the way.",
     "eyebrow": "Writing",
     "title": "Blog",
-    "subtitle": "I write on Habr about what I build: Vue tooling, performance and open source. These are the teasers; the full texts live there.",
+    "subtitle": "I write about what I build: Vue tooling, performance and open source. The articles first come out in Russian on Habr; here they are in English.",
     "metaArticles": "Articles",
-    "metaPlatform": "Platform",
+    "metaPlatform": "Source",
     "metaLanguage": "Language",
-    "metaLanguageValue": "Russian",
+    "metaLanguageValue": "English",
     "read": "Read",
-    "ruOnly": "Articles are in Russian",
     "empty": "Couldn't load the article list from Habr. They're all on the profile.",
     "openProfile": "Open profile",
-    "allOnHabr": "All articles and comments"
+    "allOnHabr": "The originals, in Russian",
+    "metaPlatformValue": "Habr, translated",
+    "published": "Published",
+    "readingTime": "Reading time",
+    "minutes": "{count} min",
+    "original": "Original",
+    "originalValue": "Habr, in Russian",
+    "translated": "Translated from Russian",
+    "originalNote": "This is a translation. The original, in Russian and with readers' comments, is on Habr.",
+    "readOriginal": "Original on Habr",
+    "nextArticle": "Next article"
   },
   "contact": {
     "seoTitle": "Contact — Dauren Abasov",

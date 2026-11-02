@@ -39,6 +39,11 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  nitro: {
+    // English article texts, read on the server by server/utils/blog.ts
+    serverAssets: [{baseName: 'blog', dir: '../content/blog'}]
+  },
+
   vite: {
     optimizeDeps: {
       // These are imported lazily, so Vite only finds them at runtime and re-bundles

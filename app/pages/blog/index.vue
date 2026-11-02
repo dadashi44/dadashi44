@@ -2,7 +2,7 @@
 import {HABR_PROFILE} from '~/data/habr'
 
 const {t, locale} = useI18n()
-const {articles, formatDate} = useHabrArticles()
+const {entries, formatDate} = useHabrArticles()
 
 useSiteSeo({
   title: () => t('blog.seoTitle'),
@@ -15,23 +15,23 @@ useJsonLd(() => ({
   '@context': 'https://schema.org',
   '@type': 'Blog',
   name: t('blog.seoTitle'),
-  url: HABR_PROFILE,
+  url: locale.value === 'en' ? `${site}/en/blog` : HABR_PROFILE,
   author: {'@id': `${site}/#person`},
-  blogPost: articles.value.map((article) => ({
+  blogPost: entries.value.map((entry) => ({
     '@type': 'BlogPosting',
-    headline: article.title,
-    url: article.url,
-    datePublished: article.publishedAt,
-    inLanguage: 'ru',
-    ...(article.cover && {image: article.cover}),
-    keywords: article.tags.join(', '),
+    headline: entry.title,
+    url: entry.to ? `${site}${entry.to}` : entry.url,
+    datePublished: entry.publishedAt,
+    inLanguage: locale.value === 'en' ? 'en' : 'ru',
+    ...(entry.cover && {image: entry.cover}),
+    keywords: entry.tags.join(', '),
     author: {'@id': `${site}/#person`}
   }))
 }))
 
 const heroMeta = computed(() => [
-  {label: t('blog.metaArticles'), value: String(articles.value.length || '—')},
-  {label: t('blog.metaPlatform'), value: 'Habr'},
+  {label: t('blog.metaArticles'), value: String(entries.value.length || '—')},
+  {label: t('blog.metaPlatform'), value: t('blog.metaPlatformValue')},
   {label: t('blog.metaLanguage'), value: t('blog.metaLanguageValue')}
 ])
 
@@ -45,21 +45,13 @@ const onProfileClick = () => track('blog_profile_clicked')
     </PageHero>
 
     <section class="container pb-10">
-      <p
-        v-if="locale === 'en'"
-        class="mb-2 inline-flex items-center gap-2 rounded-full border border-line/20 px-3 py-1 text-[11px] uppercase tracking-wider text-ink-soft"
-      >
-        <span class="h-1.5 w-1.5 rounded-full bg-accent" />
-        {{ t('blog.ruOnly') }}
-      </p>
-
-      <FadeUp v-if="articles.length" selector="[data-article]" :stagger="0.12" class="border-t border-line/15">
+      <FadeUp v-if="entries.length" selector="[data-article]" :stagger="0.12" class="border-t border-line/15">
         <ArticleRow
-          v-for="(article, i) in articles"
-          :key="article.id"
-          :article="article"
+          v-for="(entry, i) in entries"
+          :key="entry.id"
+          :article="entry"
           :index="i"
-          :date="formatDate(article.publishedAt)"
+          :date="formatDate(entry.publishedAt)"
         />
       </FadeUp>
 
@@ -69,7 +61,7 @@ const onProfileClick = () => track('blog_profile_clicked')
       </div>
     </section>
 
-    <section v-if="articles.length" class="border-t border-line/15">
+    <section v-if="entries.length" class="border-t border-line/15">
       <a
         v-cursor="{mode: 'view', label: t('common.open')}"
         :href="HABR_PROFILE"

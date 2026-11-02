@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import type {HabrArticle} from '~/data/habr'
+import {NuxtLink} from '#components'
+import type {BlogEntry} from '~/composables/useHabrArticles'
 
-const props = defineProps<{article: HabrArticle; index: number; date: string}>()
+const props = defineProps<{article: BlogEntry; index: number; date: string}>()
 
 const {t} = useI18n()
 
@@ -49,16 +50,27 @@ onMounted(() => {
   })
 })
 
-const onClick = () => track('blog_article_clicked', {article_id: props.article.id, placement: 'blog'})
+// translations open on the site, everything else on Habr
+const link = computed(() =>
+  props.article.to
+    ? {tag: NuxtLink, attrs: {to: props.article.to}}
+    : {tag: 'a', attrs: {href: props.article.url, target: '_blank', rel: 'noopener'}}
+)
+
+const onClick = () =>
+  track('blog_article_clicked', {
+    article_id: props.article.id,
+    placement: 'blog',
+    destination: props.article.to ? 'translation' : 'habr'
+  })
 </script>
 
 <template>
   <div ref="row" data-article class="relative">
-    <a
+    <component
+      :is="link.tag"
       v-cursor="{mode: 'view', label: t('blog.read')}"
-      :href="article.url"
-      target="_blank"
-      rel="noopener"
+      v-bind="link.attrs"
       class="group relative grid gap-6 py-10 lg:grid-cols-12 lg:gap-10 lg:py-14"
       @click="onClick"
     >
@@ -114,7 +126,7 @@ const onClick = () => track('blog_article_clicked', {article_id: props.article.i
         class="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-accent transition-transform duration-700 ease-expo group-hover:scale-x-100"
         aria-hidden="true"
       />
-    </a>
+    </component>
 
     <div
       v-if="article.cover"

@@ -113,3 +113,103 @@
   overflow: hidden;
   display: block;
 }
+
+/* Translated articles: Markdown rendered on the server (server/utils/blog.ts) */
+@layer components {
+  .article-body {
+    @apply text-[1.0625rem] leading-[1.75] text-ink-soft;
+  }
+
+  .article-body > * + * {
+    @apply mt-6;
+  }
+
+  .article-body h2 {
+    @apply mt-16 font-display text-4xl uppercase leading-none tracking-tight text-ink lg:text-5xl;
+  }
+
+  .article-body h3 {
+    @apply mt-12 text-xl font-semibold leading-snug text-ink;
+  }
+
+  .article-body h2 + *,
+  .article-body h3 + * {
+    @apply mt-5;
+  }
+
+  .article-body strong {
+    @apply font-semibold text-ink;
+  }
+
+  .article-body a {
+    @apply text-ink underline decoration-accent/60 decoration-1 underline-offset-[3px] transition-colors duration-300;
+  }
+
+  .article-body a:hover {
+    @apply decoration-accent text-accent;
+  }
+
+  .article-body ul,
+  .article-body ol {
+    @apply space-y-2 pl-6;
+  }
+
+  .article-body ul {
+    @apply list-none;
+  }
+
+  .article-body ul > li {
+    @apply relative;
+  }
+
+  .article-body ul > li::before {
+    content: '';
+    @apply absolute -left-5 top-[0.8em] h-1 w-1 rounded-full bg-accent;
+  }
+
+  .article-body ol {
+    @apply list-decimal marker:font-display marker:text-accent;
+  }
+
+  .article-body blockquote {
+    @apply border-l border-accent pl-6 text-lg leading-relaxed text-ink;
+  }
+
+  .article-body img {
+    @apply mx-auto h-auto max-w-full rounded-lg;
+  }
+
+  .article-body p:has(> img:only-child) {
+    @apply my-10;
+  }
+
+  .article-body hr {
+    @apply my-14 border-line/15;
+  }
+
+  .article-body table {
+    @apply block w-full overflow-x-auto text-sm;
+  }
+
+  .article-body th,
+  .article-body td {
+    @apply border-b border-line/15 px-3 py-2 text-left;
+  }
+
+  .article-body :not(pre) > code {
+    @apply rounded bg-surface-alt px-1.5 py-0.5 font-mono text-[0.875em] text-ink;
+  }
+
+  /* shiki emits both themes as CSS variables; the site's .dark class picks one */
+  .article-body pre.shiki {
+    @apply -mx-5 overflow-x-auto border-y border-line/10 bg-surface-alt px-5 py-5 font-mono text-[0.8125rem] leading-relaxed sm:mx-0 sm:rounded-lg sm:border;
+  }
+
+  .article-body pre.shiki span {
+    color: var(--shiki-light);
+  }
+
+  .dark .article-body pre.shiki span {
+    color: var(--shiki-dark);
+  }
+}

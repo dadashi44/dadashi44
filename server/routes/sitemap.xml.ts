@@ -1,4 +1,5 @@
 import {projects} from '../../app/data/projects'
+import {translations} from '../../app/data/translations'
 
 const LOCALES = ['ru', 'en'] as const
 const STATIC_PATHS = ['/', '/work', '/about', '/blog', '/contact']
@@ -34,12 +35,25 @@ export default defineEventHandler((event) => {
     })
   )
 
+  // translated articles exist only in English — the Russian version is the Habr original
+  const articles = translations.map((t) =>
+    [
+      '  <url>',
+      `    <loc>${site}/en/blog/${t.slug}</loc>`,
+      `    <lastmod>${lastmod}</lastmod>`,
+      '    <changefreq>monthly</changefreq>',
+      '    <priority>0.6</priority>',
+      '  </url>'
+    ].join('\n')
+  )
+
   setHeader(event, 'content-type', 'application/xml; charset=utf-8')
 
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
     ...urls,
+    ...articles,
     '</urlset>',
     ''
   ].join('\n')
