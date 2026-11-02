@@ -1,7 +1,7 @@
 import {projects} from '../../app/data/projects'
 
 const LOCALES = ['ru', 'en'] as const
-const STATIC_PATHS = ['/', '/work', '/about', '/contact']
+const STATIC_PATHS = ['/', '/work', '/about', '/blog', '/contact']
 
 /** RU lives at /, EN under /en — mirrors the i18n `prefix_except_default` strategy. */
 const localized = (path: string, locale: (typeof LOCALES)[number]) =>

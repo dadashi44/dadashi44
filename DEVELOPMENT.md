@@ -54,12 +54,13 @@ app/
     useAppState.ts         # флаги прелоадера и меню
   data/projects.ts         # единственный источник правды по проектам (тексты в {ru, en})
   composables/useProjects.ts  # проекты с уже развёрнутыми под локаль строками
-  pages/                   # /, /work, /work/[slug], /about, /contact
+  pages/                   # /, /work, /work/[slug], /about, /blog, /contact
   plugins/
     gsap.client.ts         # регистрация плагинов + Lenis
     directives.ts          # v-cursor (с getSSRProps, чтобы не падал SSR)
 i18n/locales/{ru,en}.json  # все тексты интерфейса
 server/api/contact.post.ts # приём формы → Telegram
+server/api/habr-articles.get.ts # статьи из RSS Хабра для /blog (кеш 6 ч)
 ```
 
 ## Анимации

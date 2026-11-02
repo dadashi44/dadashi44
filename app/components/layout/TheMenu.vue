@@ -16,6 +16,7 @@ const links = computed(() => [
   {label: t('nav.home'), to: localePath('/')},
   {label: t('nav.work'), to: localePath('/work')},
   {label: t('nav.about'), to: localePath('/about')},
+  {label: t('nav.blog'), to: localePath('/blog')},
   {label: t('nav.contact'), to: localePath('/contact')}
 ])
 

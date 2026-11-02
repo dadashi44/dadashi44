@@ -18,6 +18,8 @@ export interface Library {
   links?: {label: Localized; href: string}[]
   /** the case study the library was extracted from */
   project?: string
+  /** ids of Habr articles about it (the number in habr.com/ru/articles/<id>/) */
+  articles?: string[]
 }
 
 export interface ResolvedLibrary
@@ -63,7 +65,8 @@ export const libraries: Library[] = [
     links: [
       {label: {ru: 'Песочница', en: 'Playground'}, href: 'https://dadashi44.github.io/vue-why-render/'},
       {label: {ru: 'Nuxt Modules', en: 'Nuxt Modules'}, href: 'https://nuxt.com/modules/vue-why-render'}
-    ]
+    ],
+    articles: ['1098942', '1085472']
   },
   {
     pkg: '@bigplay/tree-view',
@@ -139,7 +142,8 @@ export const libraries: Library[] = [
     links: [
       {label: {ru: 'Документация', en: 'Docs'}, href: 'https://vue-llm.js.org/'},
       {label: {ru: 'Песочница', en: 'Playground'}, href: 'https://vue-llm.js.org/playground'}
-    ]
+    ],
+    articles: ['1101308']
   }
 ]
 

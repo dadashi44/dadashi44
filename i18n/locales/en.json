@@ -3,6 +3,7 @@
     "home": "Home",
     "work": "Work",
     "about": "About",
+    "blog": "Blog",
     "contact": "Contact",
     "menu": "Menu",
     "toggleMenu": "Toggle menu",
@@ -161,7 +162,8 @@
       "heading": "Libraries",
       "text": "When something I build for a project turns out useful beyond it, I ship it as its own package. Other developers use them — the numbers below come live from npm.",
       "downloads": "downloads last month",
-      "fromCase": "{name} case"
+      "fromCase": "{name} case",
+      "articles": "On Habr"
     }
   },
   "about": {
@@ -234,6 +236,22 @@
       "Mobile is the starting point, not an afterthought",
       "Speed is part of the product, not a someday optimisation"
     ]
+  },
+  "blog": {
+    "seoTitle": "Blog — Dauren Abasov's articles on Habr",
+    "seoDescription": "Articles on Vue, Nuxt, performance and open source: how my libraries work and what broke along the way.",
+    "eyebrow": "Writing",
+    "title": "Blog",
+    "subtitle": "I write on Habr about what I build: Vue tooling, performance and open source. These are the teasers; the full texts live there.",
+    "metaArticles": "Articles",
+    "metaPlatform": "Platform",
+    "metaLanguage": "Language",
+    "metaLanguageValue": "Russian",
+    "read": "Read",
+    "ruOnly": "Articles are in Russian",
+    "empty": "Couldn't load the article list from Habr. They're all on the profile.",
+    "openProfile": "Open profile",
+    "allOnHabr": "All articles and comments"
   },
   "contact": {
     "seoTitle": "Contact — Dauren Abasov",
