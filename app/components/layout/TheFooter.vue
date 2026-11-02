@@ -8,6 +8,7 @@ const useful = computed(() => [
   {name: t('nav.home'), path: localePath('/')},
   {name: t('nav.work'), path: localePath('/work')},
   {name: t('nav.about'), path: localePath('/about')},
+  {name: t('nav.blog'), path: localePath('/blog')},
   {name: t('nav.contact'), path: localePath('/contact')}
 ])
 

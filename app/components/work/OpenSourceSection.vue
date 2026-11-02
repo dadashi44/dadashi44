@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import {NuxtLink} from '#components'
+
 const {t, locale} = useI18n()
 const localePath = useLocalePath()
 const {list: libraries, downloads} = useLibraries()
 const {list: projects} = useProjects()
+const {byIds} = useHabrArticles()
 
 const compact = computed(
   () => new Intl.NumberFormat(locale.value === 'en' ? 'en-US' : 'ru-RU', {notation: 'compact', maximumFractionDigits: 1})
@@ -85,6 +88,42 @@ useJsonLd(() => ({
             {{ item }}
           </li>
         </ul>
+
+        <div v-if="byIds(library.articles).length">
+          <p class="mb-3 font-display text-xs uppercase tracking-[0.3em] text-ink-faint">
+            {{ t('work.openSource.articles') }}
+          </p>
+          <ul>
+            <li v-for="article in byIds(library.articles)" :key="article.id">
+              <component
+                :is="article.to ? NuxtLink : 'a'"
+                v-cursor="'link'"
+                v-bind="article.to ? {to: article.to} : {href: article.url, target: '_blank', rel: 'noopener'}"
+                class="group/article flex items-start gap-4 border-b border-line/15 py-3"
+                @click="
+                  track('blog_article_clicked', {
+                    article_id: article.id,
+                    placement: 'library',
+                    library: library.pkg,
+                    destination: article.to ? 'translation' : 'habr'
+                  })
+                "
+              >
+                <span class="text-sm leading-snug transition-colors duration-300 group-hover/article:text-accent">
+                  {{ article.title }}
+                </span>
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  class="mt-0.5 h-3.5 w-3.5 shrink-0 text-ink-faint transition-transform duration-500 ease-expo group-hover/article:-translate-y-0.5 group-hover/article:translate-x-0.5 group-hover/article:text-accent"
+                  aria-hidden="true"
+                >
+                  <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+              </component>
+            </li>
+          </ul>
+        </div>
 
         <ul class="flex flex-wrap gap-2">
           <li

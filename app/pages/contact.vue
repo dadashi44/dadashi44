@@ -72,7 +72,7 @@ const fieldClass =
 
 <template>
   <div>
-    <PageHero index="03" :title="t('contact.title')" :subtitle="t('contact.subtitle')" :meta="heroMeta">
+    <PageHero index="04" :title="t('contact.title')" :subtitle="t('contact.subtitle')" :meta="heroMeta">
       <template #eyebrow>{{ t('contact.eyebrow') }}</template>
     </PageHero>
 

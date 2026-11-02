@@ -4,7 +4,12 @@ onMounted(init)
 
 // sets <html lang>, og:locale and hreflang alternates for both languages
 const head = useLocaleHead()
-useHead(head)
+const route = useRoute()
+// a page that exists in one language only (translated articles) has no alternates:
+// its "Russian version" is a redirect to Habr, which is no place for hreflang
+useHead(() =>
+  route.meta.englishOnly ? {...head.value, link: head.value.link?.filter((l) => !('hreflang' in l))} : head.value
+)
 
 const site = useSiteUrl()
 useJsonLd({
