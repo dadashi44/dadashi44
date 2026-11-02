@@ -39,6 +39,26 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  vite: {
+    optimizeDeps: {
+      // These are imported lazily, so Vite only finds them at runtime and re-bundles
+      // mid-session. A tab that already loaded the old chunks then runs two copies of
+      // Vue and gsap: "currentRenderingInstance.ce" / "target._gsap" errors in dev.
+      include: [
+        'gsap',
+        'gsap/ScrollToPlugin',
+        'gsap/ScrollTrigger',
+        'gsap/SplitText',
+        'lenis',
+        'posthog-js',
+        'vue-why-render',
+        'three',
+        'three/examples/jsm/libs/meshopt_decoder.module.js',
+        'three/examples/jsm/loaders/GLTFLoader.js'
+      ]
+    }
+  },
+
   components: [{path: '~/components', pathPrefix: false}],
 
   runtimeConfig: {
