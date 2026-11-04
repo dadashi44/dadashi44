@@ -25,6 +25,13 @@ export default defineNuxtPlugin((nuxtApp) => {
       person_profiles: 'identified_only',
       // error tracking: uncaught errors and unhandled promise rejections
       capture_exceptions: true,
+      // own visits stay out of the numbers: open the site once with ?notrack on
+      // each of your browsers (remembered in localStorage), ?track undoes it
+      loaded: (ph) => {
+        const params = new URLSearchParams(location.search)
+        if (params.has('notrack')) ph.opt_out_capturing()
+        else if (params.has('track')) ph.opt_in_capturing()
+      },
       // /en/about and /about are the same page: report the path without the
       // locale prefix and carry the language as a property on every event
       before_send: (event) => {
